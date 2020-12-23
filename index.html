@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blanchard — художественная галерея</title>
+    <link rel="stylesheet" href="css/OverlayScrollbars.css">
+    <script src="js/OverlayScrollbars.js"></script>
+    <script src="js/splide.min.js"></script>
+    <script src="js/script.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="css/splide-core.min.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="header">
+      <div class="header__top-panel">
+        <div class="container header__container menu">
+          <!-- <div class="interactive-element" tabindex="0"> -->
+          <input type="button" class="header__burger menu__item  interactive-element" tabindex="0">
+          <!-- </div> -->
+          <a class="interactive-element" href=".">
+            <img class="header__logo" src="images/logo.svg" alt="Логотип">
+          </a>
+          <nav class="header__navigation menu__submenu">
+            <ul class="header__menu menu">
+              <li class="header__menu-item">
+                <a class="header__menu-link interactive-element" href="#about" >О&nbsp;нас</a>
+              </li>
+              <li class="header__menu-item"><a class="header__menu-link interactive-element" href="#gallery" >Галлерея</a></li>
+              <li class="header__menu-item"><a class="header__menu-link interactive-element" href="#catalogue" >Каталог</a></li>
+              <li class="header__menu-item"><a class="header__menu-link interactive-element" href="#events" >События</a></li>
+              <li class="header__menu-item"><a class="header__menu-link interactive-element" href="#publications" >Издания</a></li>
+              <li class="header__menu-item"><a class="header__menu-link interactive-element" href="#projects" >Проекты</a></li>
+              <li class="header__menu-item"><a class="header__menu-link interactive-element" href="#contacts" >Контакты</a></li>
+              <li class="header__menu-item header__menu-item__mobile"><a href="" class="header__enter-link header__enter-link__mobile interactive-element">
+                <span class="header__enter-link__icon interactive-icon"></span>Войти
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <a href="" class="header__enter-link header__enter-link__desktop interactive-element"><span class="header__enter-link__icon interactive-icon"></span>Войти</a>
+          <button class="header__search-button header__search-button__mobile interactive-element" tabindex="0"></button>
+        </div>
+      </div>
+      <div class="header__bottom-panel">
+        <div class="container header__container">
+          <ul class="header__catalogue menu">
+            <li class="header__cat-item">
+              <a href="#" class="header__cat-header menu__item interactive-element">Реализм<span class="header__cat-button__down header__cat-button interactive-icon"></span></a>
+              <ul class="header__submenu menu__submenu">
+                <li tabindex="0" class="header__submenu-item submenu-item1">Титнторетто</li>
+                <li tabindex="0" class="header__submenu-item submenu-item2">Фридрих</li>
+                <li tabindex="0" class="header__submenu-item submenu-item3">Леонардо</li>
+                <li tabindex="0" class="header__submenu-item submenu-item4">Веррокью</li>
+              </ul>
+            </li>
+            <li class="header__cat-item">
+              <a href="#" class="header__cat-header menu__item interactive-element">Импрессионизм<span class="header__cat-button__down header__cat-button interactive-icon"></span></a>
+              <ul class="header__submenu menu__submenu">
+                <li tabindex="0" class="header__submenu-item submenu-item1">Моне</li>
+                <li tabindex="0" class="header__submenu-item submenu-item2">Ренуар</li>
+                <li tabindex="0" class="header__submenu-item submenu-item3">Мане</li>
+              </ul>
+            </li>
+            <li class="header__cat-item">
+              <a href="#" class="header__cat-header menu__item interactive-element">Постимпрессионизм<span class="header__cat-button__down header__cat-button interactive-icon"></span></a>
+              <ul class="header__submenu menu__submenu">
+                <li tabindex="0" class="header__submenu-item submenu-item1">Ван Гог</li>
+                <li tabindex="0" class="header__submenu-item submenu-item2">Сезанн</li>
+                <li tabindex="0" class="header__submenu-item submenu-item3">Гоген</li>
+                <li tabindex="0" class="header__submenu-item submenu-item4">Пикассо</li>
+              </ul>
+            </li>
+            <li class="header__cat-item">
+              <a href="#" class="header__cat-header menu__item interactive-element">Авангард<span class="header__cat-button__down header__cat-button interactive-icon"></span></a>
+              <ul class="header__submenu menu__submenu">
+                <li tabindex="0" class="header__submenu-item submenu-item1">Малевич</li>
+                <li tabindex="0" class="header__submenu-item submenu-item2">Лисицкий</li>
+              </ul>
+            </li>
+            <li class="header__cat-item">
+              <a href="#" class="header__cat-header menu__item interactive-element">Футуризм<span class="header__cat-button__down header__cat-button interactive-icon"></span></a>
+              <ul class="header__submenu menu__submenu">
+                <li tabindex="0" class="header__submenu-item submenu-item1">Боччони</li>
+                <li tabindex="0" class="header__submenu-item submenu-item2">Джакомо</li>
+                <li tabindex="0" class="header__submenu-item submenu-item3">Северини</li>
+                <li tabindex="0" class="header__submenu-item submenu-item4">Карра</li>
+                <li tabindex="0" class="header__submenu-item submenu-item1">Экстер</li>
+              </ul>
+            </li>
+          </ul>
+          <form class="header__search-form interactive-element" tabindex="-1" action="https://jsonplaceholder.typicode.com/posts" method="GET">
+            <input class="header__search-button interactive-icon" type="submit" value="" tabindex="-1">
+            <input class="header__search-text interactive-input" type="text" name="searchtext" placeholder="Поиск по сайту" >
+          </form>
+        </div>
+      </div>
+    </header>
+    <div class="hero">
+      <div class="hero__slider splide">
+        <div class="splide__track">
+          <div class="splide__list">
+            <div class="splide__slide hero__img-container">
+              <picture>
+                <source srcset="/images/hero1-320.jpg" media="(max-width: 320px)">
+                <source srcset="/images/hero1-768.jpg" media="(max-width: 768)">
+                <source srcset="/images/hero1-1024.jpg" media="(max-width: 1024px)">
+                <img class="hero__img" srcset="/images/hero1.jpg, /images/hero1@2x.jpg" alt="Образец картины">
+              </picture>
+            </div>
+            <div class="splide__slide hero__img-container">
+              <picture>
+                <source srcset="/images/hero2-320.jpg" media="(max-width: 320px)">
+                <source srcset="/images/hero2-768.jpg" media="(max-width: 768)">
+                <source srcset="/images/hero2-1024.jpg" media="(max-width: 1024px)">
+                <img class="hero__img" srcset="/images/hero2.jpg, /images/hero2@2x.jpg" alt="Образец картины">
+              </picture>
+            </div>
+            <div class="splide__slide hero__img-container">
+              <picture>
+                <source srcset="/images/hero3-320.jpg" media="(max-width: 320px)">
+                <source srcset="/images/hero3-768.jpg" media="(max-width: 768)">
+                <source srcset="/images/hero3-1024.jpg" media="(max-width: 1024px)">
+                <img class="hero__img" srcset="/images/hero3.jpg, /images/hero3@2x.jpg" alt="Образец картины">
+              </picture>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero__container">
+        <div class="container">
+          <h1 class="hero__header">Прикоснитесь к прекрасному</h1>
+          <p class="hero__desc">Мы вынуждены отталкиваться от того, что реализация намеченных плановых заданий создаёт предпосылки для новых предложений.</p>
+          <a href="." class="hero__button">Подписаться на рассылку</a>
+        </div>
+      </div>
+    </div>
+</body>
+</html>
