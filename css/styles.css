@@ -49,7 +49,7 @@
 }
 
 .container {
-  max-width: 83.3vw;
+  max-width: 83vw;
   margin:0 auto;
   height: inherit;
 }
@@ -184,7 +184,7 @@ body {
   text-decoration: none;
   font-family: 'Opensans' ;
   letter-spacing: 1px;
-  transform: translateX(2px);
+  transform: translateX(7px);
 }
 
 .header__enter-link__icon {
@@ -192,12 +192,13 @@ body {
   display: inline-block;
   width:13px;
   height: 13px;
-  margin-right: 10px;
+  /* margin-right: 10px; */
   /* -webkit-mask-image: url('../images/enter.svg'); */
   /* -webkit-mask-size: contain; */
   /* -webkit-mask-repeat: no-repeat; */
   /* -webkit-mask-position: right center; */
   fill: var(--contrast-text-color);
+  transform: translateX(-4px);
 }
 
 .header__search-button__mobile {
