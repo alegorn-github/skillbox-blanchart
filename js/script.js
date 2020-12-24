@@ -41,7 +41,7 @@
     type: 'loop',
     arrows: false,
     pagination: false,
-    // autoplay: true,
+    autoplay: true,
   } ).mount();
 
 })()

@@ -391,7 +391,7 @@ body {
   height: 800px;
   width: 100%;
   object-fit: cover;
-  /* animation: hero__animation 30s linear infinite; */
+  animation: hero__animation 30s linear infinite;
 }
 
 .hero__container {
