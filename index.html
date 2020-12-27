@@ -17,9 +17,13 @@
     <header class="header">
       <div class="header__top-panel">
         <div class="container header__container menu">
-          <!-- <div class="interactive-element" tabindex="0"> -->
-          <input type="button" class="header__burger menu__item  interactive-element" tabindex="0" value="0">
-          <!-- </div> -->
+          <button class="header__burger menu__item  interactive-element">
+            <svg class="interactive-icon" viewBox="0 0 36 29" xmlns="http://www.w3.org/2000/svg">
+              <rect width="36" height="3.65217" transform="matrix(-1 0 0 1 36 0.699997)" />
+              <path d="M28.2002 12.8739H0.00019455V16.5261H28.2002V12.8739Z" />
+              <path d="M24 25.0478H0V28.7H24V25.0478Z" />
+            </svg>
+          </button>
           <a class="interactive-element" href=".">
             <img class="header__logo" src="images/logo.svg" alt="Логотип">
           </a>
@@ -34,8 +38,12 @@
               <li class="header__menu-item"><a class="header__menu-link interactive-element" href="#publications" >Издания</a></li>
               <li class="header__menu-item"><a class="header__menu-link interactive-element" href="#projects" >Проекты</a></li>
               <li class="header__menu-item"><a class="header__menu-link interactive-element" href="#contacts" >Контакты</a></li>
-              <li class="header__menu-item header__menu-item__mobile"><a href="" class="header__enter-link header__enter-link__mobile interactive-element">
-                <span class="header__enter-link__icon interactive-icon"></span>Войти
+              <li class="header__menu-item header__menu-item__mobile">
+                <a href="" class="header__enter-link header__enter-link__mobile interactive-element">
+                    <svg class="header__enter-link__icon interactive-icon" width="13" height="13" viewBox="0 0 13 13" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M5.12056 9.09278L6.13889 10.1111L9.75 6.5L6.13889 2.88889L5.12056 3.90722L6.98389 5.77778H0V7.22222H6.98389L5.12056 9.09278ZM11.5556 0H1.44444C0.642778 0 0 0.65 0 1.44444V4.33333H1.44444V1.44444H11.5556V11.5556H1.44444V8.66667H0V11.5556C0 12.35 0.642778 13 1.44444 13H11.5556C12.35 13 13 12.35 13 11.5556V1.44444C13 0.65 12.35 0 11.5556 0Z" />
+                    </svg>
+                    Войти
                 </a>
               </li>
             </ul>
@@ -46,7 +54,23 @@
             </svg>
             Войти
           </a>
-          <button class="header__search-button header__search-button__mobile interactive-element" tabindex="0"></button>
+          <div class="header__search-form-container">
+            <button class="header__search-button header__search-button__mobile interactive-element menu__item" tabindex="0">
+              <svg class="interactive-icon" viewBox="0 0 23 22" xmlns="http://www.w3.org/2000/svg">
+                <rect width="6.8678" height="1.71695" transform="matrix(-0.718931 0.695081 0.718931 0.695081 4.9375 15.6534)"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0969 18C7.53041 18 3.99692 14.3229 3.99692 10C3.99692 5.67715 7.53041 2 12.0969 2C16.6634 2 20.1969 5.67715 20.1969 10C20.1969 14.3229 16.6634 18 12.0969 18ZM12.0969 20C6.57408 20 2.09692 15.5228 2.09692 10C2.09692 4.47715 6.57408 0 12.0969 0C17.6198 0 22.0969 4.47715 22.0969 10C22.0969 15.5228 17.6198 20 12.0969 20Z"/>
+              </svg>
+            </button>
+            <div class="header__search-form__mobile menu__submenu">
+              <form class="header__search-form" tabindex="-1" action="https://jsonplaceholder.typicode.com/posts" method="GET">
+                <svg class="header__search-button interactive-icon" viewBox="0 0 23 22" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="6.8678" height="1.71695" transform="matrix(-0.718931 0.695081 0.718931 0.695081 4.9375 15.6534)"/>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0969 18C7.53041 18 3.99692 14.3229 3.99692 10C3.99692 5.67715 7.53041 2 12.0969 2C16.6634 2 20.1969 5.67715 20.1969 10C20.1969 14.3229 16.6634 18 12.0969 18ZM12.0969 20C6.57408 20 2.09692 15.5228 2.09692 10C2.09692 4.47715 6.57408 0 12.0969 0C17.6198 0 22.0969 4.47715 22.0969 10C22.0969 15.5228 17.6198 20 12.0969 20Z"/>
+                </svg>
+                <input class="header__search-text interactive-input" type="text" name="searchtext" placeholder="Поиск по сайту" >
+              </form>
+            </div>
+          </div>
         </div>
       </div>
       <div class="header__bottom-panel">
@@ -126,8 +150,6 @@
               <rect width="6.8678" height="1.71695" transform="matrix(-0.718931 0.695081 0.718931 0.695081 4.9375 15.6534)"/>
               <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0969 18C7.53041 18 3.99692 14.3229 3.99692 10C3.99692 5.67715 7.53041 2 12.0969 2C16.6634 2 20.1969 5.67715 20.1969 10C20.1969 14.3229 16.6634 18 12.0969 18ZM12.0969 20C6.57408 20 2.09692 15.5228 2.09692 10C2.09692 4.47715 6.57408 0 12.0969 0C17.6198 0 22.0969 4.47715 22.0969 10C22.0969 15.5228 17.6198 20 12.0969 20Z"/>
             </svg>
-
-            <!-- <input class="header__search-button interactive-icon" type="submit" value="" tabindex="-1"> -->
             <input class="header__search-text interactive-input" type="text" name="searchtext" placeholder="Поиск по сайту" >
           </form>
         </div>
