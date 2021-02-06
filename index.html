@@ -16,9 +16,11 @@
     <script src="js/splide.min.js"></script>
     <script src="js/splide-extension-grid.min.js"></script>
     <script src="js/clamp.min.js"></script>
+    <script src="js/handorgel.min.js"></script>
     <script src="js/script.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="css/splide-core.min.css">
+    <link rel="stylesheet" href="css/handorgel.min.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -47,14 +49,6 @@
               <li class="header__menu-item"><a class="header__menu-link interactive-element" href="#publications" >Издания</a></li>
               <li class="header__menu-item"><a class="header__menu-link interactive-element" href="#projects" >Проекты</a></li>
               <li class="header__menu-item"><a class="header__menu-link interactive-element" href="#contacts" >Контакты</a></li>
-              <!-- <li class="header__menu-item header__menu-item__mobile">
-                <a href="" class="header__enter-link header__enter-link__mobile interactive-element">
-                    <svg class="header__enter-link__icon interactive-icon" width="13" height="13" viewBox="0 0 13 13" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M5.12056 9.09278L6.13889 10.1111L9.75 6.5L6.13889 2.88889L5.12056 3.90722L6.98389 5.77778H0V7.22222H6.98389L5.12056 9.09278ZM11.5556 0H1.44444C0.642778 0 0 0.65 0 1.44444V4.33333H1.44444V1.44444H11.5556V11.5556H1.44444V8.66667H0V11.5556C0 12.35 0.642778 13 1.44444 13H11.5556C12.35 13 13 12.35 13 11.5556V1.44444C13 0.65 12.35 0 11.5556 0Z" />
-                    </svg>
-                    Войти
-                </a>
-              </li> -->
             </ul>
           </nav>
           <a href="" class="header__enter-link header__enter-link__desktop interactive-element">
@@ -912,57 +906,398 @@
         </div>
       </div>
     </section>
-    <section class="catalogue section">
+    <section class="catalogue section" id="catalogue">
       <div class="container catalogue__container">
-        <div class="catalogue__header-container">
-          <h2 class="catalogue__header section__header">Каталог</h2>
-          <ul class="catalogue__tabs tabs">
-            <li class="catalogue__tab__fr tabs__tab tabs__tab__active" data-destination="fr"></li>
-            <li class="catalogue__tab__de tabs__tab " data-destination="de"></li>
-            <li class="catalogue__tab__it tabs__tab " data-destination="it"></li>
-            <li class="catalogue__tab__ru tabs__tab " data-destination="ru"></li>
-            <li class="catalogue__tab__be tabs__tab " data-destination="be"></li>
-          </ul>
-        </div>
-        <div class="catalogue__desc">
-          Акционеры крупнейших компаний, которые представляют собой яркий пример континентально-европейского типа политической культуры, будут объявлены нарушающими общечеловеческие нормы этики и морали. Являясь всего лишь частью общей картины, стремящиеся вытеснить традиционное производство, нанотехнологии и по сей день остаются уделом либералов, которые жаждут быть функционально разнесены на независимые элементы.
-        </div>
-        <div class="catalogue__content-container catalogue__tab-content catalogue__tab-content__active" data-anchor="fr">
-          <div class="catalogue__aritst-container">
-            <div class="catalogue__aritst catalogue__artist__active" data-anchor="artist__001">
-              <picture class="catalogue__img-container">
-                <img class="catalogue__img " src="" alt="" srcset="">
-              </picture>
-              <h4 class="catalogue__artist-name">Доменико Гирландайо</h4>
-              <div class="catalogue__artist-years">2 июня 1448 — 11 января 1494.</div>
-              <div class="catalogue__artist-desc">Один из ведущих флорентийских художников Кватроченто, основатель художественной династии, которую продолжили его брат Давид и сын Ридольфо. Глава художественной мастерской, где юный Микеланджело в течение года овладевал профессиональными навыками. Автор фресковых циклов, в которых выпукло, со всевозможными подробностями показана домашняя жизнь библейских персонажей (в их роли выступают знатные граждане Флоренции в костюмах того времени).</div>
+        <div class="catalogue__tabs-container tabs">
+          <div class="catalogue__header-container">
+            <h2 class="catalogue__header section__header">Каталог</h2>
+            <ul class="catalogue__tabs">
+              <li class="catalogue__tabs-item"><button data-anchor="fr" class="catalogue__tab-btn__fr catalogue__tab-btn tabs__tab"></button></li>
+              <li class="catalogue__tabs-item"><button data-anchor="de" class="catalogue__tab-btn__de catalogue__tab-btn tabs__tab"></button></li>
+              <li class="catalogue__tabs-item"><button data-anchor="it" class="catalogue__tab-btn__it catalogue__tab-btn tabs__tab tabs__tab__active"></button></li>
+              <li class="catalogue__tabs-item"><button data-anchor="ru" class="catalogue__tab-btn__ru catalogue__tab-btn tabs__tab"></button></li>
+              <li class="catalogue__tabs-item"><button data-anchor="be" class="catalogue__tab-btn__be catalogue__tab-btn tabs__tab"></button></li>
+            </ul>
+          </div>
+          <div class="tabs__content-container" id="contentContainer">
+            <div class="catalogue__content-container catalogue__tab-content tabs__content" data-anchor="fr">
+              <p class="catalogue__desc">
+                Далеко-далеко за словесными горами, в стране гласных и согласных живут рыбные тексты. Вершину по всей продолжил оксмокс. До пояс несколько коварный дорогу большого всеми повстречался обеспечивает языкового первую, ведущими встретил вопроса составитель безопасную!
+              </p>
+              <div class="catalogue__content tabs">
+                <div class="catalogue__artist-container tabs__content-container">
+                  <div class="catalogue__artist catalogue__artist__active tabs__content tabs__content__active" data-anchor="artist__004">
+                    <picture class="catalogue__picture">
+                      <img class="catalogue__img" src="images/catalogue__artist-4.jpg" alt="" srcset="images/catalogue__artist-4.jpg, images/catalogue__artist-4@2x.jpg 2x">
+                    </picture>
+                    <h4 class="catalogue__artist-name">Абель де Пюжоль</h4>
+                    <span class="catalogue__artist-years">30 января 1785 — 29 сентября 1861.</span>
+                    <p class="catalogue__artist-desc">Абель де Пюжоль родился во Франции в городе Валансьен в семье барона де Пюжоль (Baron de la Grave et de Pujol)[2]. Учился живописи в Академии Валансьена, затем в Париже в Школе изящных искусств в мастерской Давида, основным положениям которого оставался верен до конца. Первым учителем Абеля в Академии является Жак-Франсуа, который оказал значительное влияние на художественные способности юноши.</p>
+                  </div>
+                  <div class="catalogue__artist tabs__content" data-anchor="artist__005">
+                    <picture class="catalogue__picture">
+                      <img class="catalogue__img" src="images/catalogue__artist-5.jpg" alt="" srcset="images/catalogue__artist-5.jpg, images/catalogue__artist-5@2x.jpg 2x">
+                    </picture>
+                    <h4 class="catalogue__artist-name">Пьер-Анри́ де Валансье́н</h4>
+                    <span class="catalogue__artist-years">6 декабря 1750 -  16 февраля 1819.</span>
+                    <p class="catalogue__artist-desc">Образовал свой особенный стиль псевдоклассических пейзажей, красивых, но далеких от верности с природой, имел многих последователей: почти все пейзажисты времен Первой империи были его учениками или подражателями.</p>
+                  </div>
+                  <div class="catalogue__artist tabs__content" data-anchor="artist__006">
+                    <picture class="catalogue__picture">
+                      <img class="catalogue__img" src="images/catalogue__artist-6.jpg" alt="" srcset="images/catalogue__artist-6.jpg, images/catalogue__artist-6@2x.jpg 2x">
+                    </picture>
+                    <h4 class="catalogue__artist-name">Жаден, Луи</h4>
+                    <span class="catalogue__artist-years">1453 -  1523.</span>
+                    <p class="catalogue__artist-desc">Был близким другом Александра Дюма (отца), которого сопровождал в нескольких поездках, в частности, в Неаполь в 1835 году и во Флоренцию в 1840 году. Дюма представил художника Фердинанду Филиппу, герцогу Орлеанскому, по просьбе которого Л. Жаден украсил столовую дворца Тюильри полотнами с охотничьими сценами.</p>
+                  </div>
+                </div>
+                <div class="catalogue__artist-catalogue">
+                  <div class="catalogue__accordion handorgel">
+                    <h3 class="catalogue__period-header handorgel__header">
+                      <button class="catalogue__period-name handorgel__header__button" >
+                        C 1400 по 1499 гг.
+                      </button>
+                      <button class="catalogue__period-btn">
+                        <svg class="catalogue__period-btn-arrow" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M11 1L6 6L0.999998 1" />
+                        </svg>
+                      </button>
+                    </h3>
+                    <div class="handorgel__content">
+                      <div class="catalogue__artist-list handorgel__content__inner">
+                        <a href="#" class="catalogue__artist-link tabs__tab tabs__tab__active" data-anchor="artist__004">Абель де Пюжоль</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__005">Пьер-Анри́ де Валансье́н</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__006">Жаден, Луи</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__004">Абель де Пюжоль</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__005">Пьер-Анри́ де Валансье́н</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__006">Жаден, Луи</a>
+                      </div>
+                    </div>
+                    <h3 class="catalogue__period-header handorgel__header">
+                      <button class="catalogue__period-name handorgel__header__button">
+                        C 1500 по 1599 гг.
+                      </button>
+                      <button class="catalogue__period-btn">
+                        <svg class="catalogue__period-btn-arrow" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M11 1L6 6L0.999998 1" />
+                        </svg>
+                      </button>
+                    </h3>
+                    <div class="handorgel__content">
+                      <div class="catalogue__artist-list handorgel__content__inner">
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__005">Абель де Пюжоль</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__006">Пьер-Анри́ де Валансье́н</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__004">Жаден, Луи</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="catalogue__content-container catalogue__tab-content tabs__content tabs__content__active" data-anchor="it">
+              <p class="catalogue__desc">
+                Акционеры крупнейших компаний, которые представляют собой яркий пример континентально-европейского типа политической культуры, будут объявлены нарушающими общечеловеческие нормы этики и морали. Являясь всего лишь частью общей картины, стремящиеся вытеснить традиционное производство, нанотехнологии и по сей день остаются уделом либералов, которые жаждут быть функционально разнесены на независимые элементы.
+              </p>
+              <div class="catalogue__content tabs">
+                <div class="catalogue__artist-container  tabs__content-container">
+                  <div class="catalogue__artist catalogue__artist__active tabs__content tabs__content__active" data-anchor="artist__010">
+                    <picture class="catalogue__picture">
+                      <img class="catalogue__img" src="images/catalogue__artist-1.jpg" alt="" srcset="images/catalogue__artist-1.jpg, images/catalogue__artist-1@2x.jpg 2x">
+                    </picture>
+                    <h4 class="catalogue__artist-name">Доменико Гирландайо</h4>
+                    <span class="catalogue__artist-years">2 июня 1448 — 11 января 1494.</span>
+                    <p class="catalogue__artist-desc">Один из ведущих флорентийских художников Кватроченто, основатель художественной династии, которую продолжили его брат Давид и сын Ридольфо. Глава художественной мастерской, где юный Микеланджело в течение года овладевал профессиональными навыками. Автор фресковых циклов, в которых выпукло, со всевозможными подробностями показана домашняя жизнь библейских персонажей (в их роли выступают знатные граждане Флоренции в костюмах того времени).</p>
+                  </div>
+                  <div class="catalogue__artist tabs__content" data-anchor="artist__001">
+                    <picture class="catalogue__picture">
+                      <img class="catalogue__img" src="images/catalogue__artist-2.jpg" alt="" srcset="images/catalogue__artist-2.jpg, images/catalogue__artist-2@2x.jpg 2x">
+                    </picture>
+                    <h4 class="catalogue__artist-name">Бенедетто ди Биндо</h4>
+                    <span class="catalogue__artist-years">1380 -  19 сентября 1417.</span>
+                    <p class="catalogue__artist-desc">Бенедетто ди Биндо остался в истории искусства как сиенский художник, так сказать, «второго ряда», несмотря на то, что за свою короткую жизнь он выполнил ряд весьма престижных заказов, включая работы в Сиенском соборе (работы в главном соборе республики второстепенным художникам не поручались). Обучение он прошёл у Таддео ди Бартоло, крупного сиенского мастера поздней готики, в боттеге которого Бенедетто трудился вместе с Грегорио ди Чекко. Наибольшее влияние на его творчество оказали работы Симоне Мартини, в частности в выборе колорита, а тонко проработанные лица его персонажей напоминают произведения Джованни да Милано.</p>
+                  </div>
+                  <div class="catalogue__artist tabs__content" data-anchor="artist__002">
+                    <picture class="catalogue__picture">
+                      <img class="catalogue__img" src="images/catalogue__artist-3.jpg" alt="" srcset="images/catalogue__artist-3.jpg, images/catalogue__artist-3@2x.jpg 2x">
+                    </picture>
+                    <h4 class="catalogue__artist-name">Бергоньоне, Амброджо</h4>
+                    <span class="catalogue__artist-years">1453 -  1523.</span>
+                    <p class="catalogue__artist-desc">Прозвище говорит о его тяготении к бургундской школе, по манере ему близок Винченцо Фоппа. Испытал влияние Леонардо да Винчи. Наиболее известен работами 1486—1494 в монастырской обители картезианцев Чертоза ди Павия. Позднее работал в Милане в базилике Сант-Эусторджо и церкви Сан-Сатиро, после 1497 — в Лоди, в 1512 — в Бергамо, незадолго до смерти — снова в Милане, в базилике Сан-Симпличано.</p>
+                  </div>
+                </div>
+                <div class="catalogue__artist-catalogue">
+                  <div class="catalogue__accordion handorgel">
+                    <h3 class="catalogue__period-header handorgel__header">
+                      <button class="catalogue__period-name handorgel__header__button" >
+                        C 1400 по 1499 гг.
+                      </button>
+                      <button class="catalogue__period-btn">
+                        <svg class="catalogue__period-btn-arrow" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M11 1L6 6L0.999998 1" />
+                        </svg>
+                      </button>
+                    </h3>
+                    <div class="handorgel__content">
+                      <div class="catalogue__artist-list handorgel__content__inner">
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Бенедетто ди Биндо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Бергоньоне, Амброджо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Биссоло, Франческо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Больтраффио, Джованни</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Бонсиньори, Франческо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Боттичини, Рафаэлло</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Брамантино</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Бреа, Людовико</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Бьяджо д’Антонио Туччи</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Веккьетта</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Андреа Верроккьо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab catalogue__artist-link__selected tabs__tab__active" data-anchor="artist__010">Доменико Гирландайо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Беноццо Гоццоли</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Граначчи, Франческо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__010">Грегорио ди Чекко</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Джованни да Удине</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Джованни ди Паоло</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__010">Джорджоне</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Парентино, Бернардо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Пезеллино</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__010">Пьетро Перуджино</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Перуцци, Бальдассаре</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Пизанелло</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__010">Пинтуриккьо</a>
+                      </div>
+                    </div>
+                    <h3 class="catalogue__period-header handorgel__header">
+                      <button class="catalogue__period-name handorgel__header__button">
+                        C 1500 по 1599 гг.
+                      </button>
+                      <button class="catalogue__period-btn">
+                        <svg class="catalogue__period-btn-arrow" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M11 1L6 6L0.999998 1" />
+                        </svg>
+                      </button>
+                    </h3>
+                    <div class="handorgel__content">
+                      <div class="catalogue__artist-list handorgel__content__inner">
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Бенедетто ди Биндо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Бергоньоне, Амброджо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Биссоло, Франческо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Больтраффио, Джованни</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Бонсиньори, Франческо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Боттичини, Рафаэлло</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Брамантино</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Бреа, Людовико</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Бьяджо д’Антонио Туччи</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Веккьетта</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Андреа Верроккьо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__010">Доменико Гирландайо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Беноццо Гоццоли</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Граначчи, Франческо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__010">Грегорио ди Чекко</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Джованни да Удине</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Джованни ди Паоло</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__010">Джорджоне</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Парентино, Бернардо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Пезеллино</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__010">Пьетро Перуджино</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Перуцци, Бальдассаре</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Пизанелло</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__010">Пинтуриккьо</a>
+                      </div>
+                    </div>
+                    <h3 class="catalogue__period-header handorgel__header">
+                      <button class="catalogue__period-name handorgel__header__button">
+                        C 1600 по 1699 гг.
+                      </button>
+                      <button class="catalogue__period-btn">
+                        <svg class="catalogue__period-btn-arrow" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M11 1L6 6L0.999998 1" />
+                        </svg>
+                      </button>
+                    </h3>
+                    <div class="handorgel__content">
+                      <div class="catalogue__artist-list handorgel__content__inner">
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Бенедетто ди Биндо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Бергоньоне, Амброджо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Биссоло, Франческо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Больтраффио, Джованни</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Бонсиньори, Франческо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Боттичини, Рафаэлло</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Брамантино</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Бреа, Людовико</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Бьяджо д’Антонио Туччи</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Веккьетта</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Андреа Верроккьо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__010">Доменико Гирландайо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Беноццо Гоццоли</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Граначчи, Франческо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__010">Грегорио ди Чекко</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Джованни да Удине</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Джованни ди Паоло</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__010">Джорджоне</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Парентино, Бернардо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Пезеллино</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__010">Пьетро Перуджино</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Перуцци, Бальдассаре</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Пизанелло</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__010">Пинтуриккьо</a>
+                      </div>
+                    </div>
+                    <h3 class="catalogue__period-header handorgel__header">
+                      <button class="catalogue__period-name handorgel__header__button">
+                        C 1700 по 1799 гг.
+                      </button>
+                      <button class="catalogue__period-btn">
+                        <svg class="catalogue__period-btn-arrow" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M11 1L6 6L0.999998 1" />
+                        </svg>
+                      </button>
+                    </h3>
+                    <div class="handorgel__content">
+                      <div class="catalogue__artist-list handorgel__content__inner">
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Бенедетто ди Биндо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Бергоньоне, Амброджо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Биссоло, Франческо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Больтраффио, Джованни</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Бонсиньори, Франческо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Боттичини, Рафаэлло</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Брамантино</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Бреа, Людовико</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Бьяджо д’Антонио Туччи</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Веккьетта</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Андреа Верроккьо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__010">Доменико Гирландайо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Беноццо Гоццоли</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Граначчи, Франческо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__010">Грегорио ди Чекко</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Джованни да Удине</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Джованни ди Паоло</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__010">Джорджоне</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Парентино, Бернардо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Пезеллино</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__010">Пьетро Перуджино</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Перуцци, Бальдассаре</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Пизанелло</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__010">Пинтуриккьо</a>
+                      </div>
+                    </div>
+                    <h3 class="catalogue__period-header handorgel__header">
+                      <button class="catalogue__period-name handorgel__header__button">
+                        C 1800 по 1899 гг.
+                      </button>
+                      <button class="catalogue__period-btn">
+                        <svg class="catalogue__period-btn-arrow" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M11 1L6 6L0.999998 1" />
+                        </svg>
+                      </button>
+                    </h3>
+                    <div class="handorgel__content">
+                      <div class="catalogue__artist-list handorgel__content__inner">
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Бенедетто ди Биндо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Бергоньоне, Амброджо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Биссоло, Франческо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Больтраффио, Джованни</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Бонсиньори, Франческо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Боттичини, Рафаэлло</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Брамантино</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Бреа, Людовико</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Бьяджо д’Антонио Туччи</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Веккьетта</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Андреа Верроккьо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__010">Доменико Гирландайо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Беноццо Гоццоли</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Граначчи, Франческо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__010">Грегорио ди Чекко</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Джованни да Удине</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Джованни ди Паоло</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__010">Джорджоне</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Парентино, Бернардо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Пезеллино</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__010">Пьетро Перуджино</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Перуцци, Бальдассаре</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Пизанелло</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__010">Пинтуриккьо</a>
+                      </div>
+                    </div>
+                    <h3 class="catalogue__period-header handorgel__header">
+                      <button class="catalogue__period-name handorgel__header__button">
+                        C 1900 по 1999 гг.
+                      </button>
+                      <button class="catalogue__period-btn">
+                        <svg class="catalogue__period-btn-arrow" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M11 1L6 6L0.999998 1" />
+                        </svg>
+                      </button>
+                    </h3>
+                    <div class="handorgel__content">
+                      <div class="catalogue__artist-list handorgel__content__inner">
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Бенедетто ди Биндо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Бергоньоне, Амброджо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Биссоло, Франческо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Больтраффио, Джованни</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Бонсиньори, Франческо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Боттичини, Рафаэлло</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Брамантино</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Бреа, Людовико</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Бьяджо д’Антонио Туччи</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Веккьетта</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Андреа Верроккьо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__010">Доменико Гирландайо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Беноццо Гоццоли</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Граначчи, Франческо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__010">Грегорио ди Чекко</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Джованни да Удине</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Джованни ди Паоло</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__010">Джорджоне</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Парентино, Бернардо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Пезеллино</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__010">Пьетро Перуджино</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Перуцци, Бальдассаре</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Пизанелло</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__010">Пинтуриккьо</a>
+                      </div>
+                    </div>
+                    <h3 class="catalogue__period-header handorgel__header">
+                      <button class="catalogue__period-name handorgel__header__button">
+                        C 2000 г.
+                      </button>
+                      <button class="catalogue__period-btn">
+                        <svg class="catalogue__period-btn-arrow" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M11 1L6 6L0.999998 1" />
+                        </svg>
+                      </button>
+                    </h3>
+                    <div class="handorgel__content">
+                      <div class="catalogue__artist-list handorgel__content__inner">
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Бенедетто ди Биндо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Бергоньоне, Амброджо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Биссоло, Франческо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Больтраффио, Джованни</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Бонсиньори, Франческо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Боттичини, Рафаэлло</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Брамантино</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Бреа, Людовико</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Бьяджо д’Антонио Туччи</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Веккьетта</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Андреа Верроккьо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__010">Доменико Гирландайо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Беноццо Гоццоли</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Граначчи, Франческо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__010">Грегорио ди Чекко</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Джованни да Удине</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Джованни ди Паоло</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__010">Джорджоне</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Парентино, Бернардо</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Пезеллино</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__010">Пьетро Перуджино</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__001">Перуцци, Бальдассаре</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__002">Пизанелло</a>
+                        <a href="#" class="catalogue__artist-link tabs__tab" data-anchor="artist__010">Пинтуриккьо</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="catalogue__artist-catalogue">
-            <div class="catalogue__accordion">
-              <ul class="catalogue__period-list">
-                <li class="catalogue__period-item">
-                  <h3 class="catalogue__period-name">C 1400 по 1499 гг.</h3>
-                    <a href="#" class="catalogue__artist-link" data-anchor="artist__001">Бенедетто ди Биндо</a>
-                    <a href="#" class="catalogue__artist-link" data-anchor="artist__002">Бергоньоне, Амброджо</a>
-                    <a href="#" class="catalogue__artist-link" data-anchor="artist__003">Биссоло, Франческо</a>
-                    <a href="#" class="catalogue__artist-link" data-anchor="artist__004">Больтраффио, Джованни</a>
-                    <a href="#" class="catalogue__artist-link" data-anchor="artist__005">Бонсиньори, Франческо</a>
-                    <a href="#" class="catalogue__artist-link" data-anchor="artist__006">Боттичини, Рафаэлло</a>
-                    <a href="#" class="catalogue__artist-link" data-anchor="artist__007">Брамантино</a>
-                    <a href="#" class="catalogue__artist-link" data-anchor="artist__008">Бреа, Людовико</a>
-                    <a href="#" class="catalogue__artist-link" data-anchor="artist__009">Бьяджо д’Антонио Туччи</a>
-                </li>
-                <li class="catalogue__period-item"></li>
-                <li class="catalogue__period-item"></li>
-                <li class="catalogue__period-item"></li>
-                <li class="catalogue__period-item"></li>
-                <li class="catalogue__period-item"></li>
-                <li class="catalogue__period-item"></li>
-              </ul>
-            </div>
-          </div>
-
         </div>
       </div>
     </section>
@@ -1027,7 +1362,7 @@
         </ul>
       </div>
     </div>
-    <div class="gallery__modal-window">
+    <div class="gallery__modal-window" data-middle="0">
       <div class="gallery__modal-img">
         <picture class="gallery__picture">
           <source srcset="images/gallery-slider-1@2x.jpg" media="(min-width: 1000px)">
