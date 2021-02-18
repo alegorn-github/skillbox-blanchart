@@ -1193,9 +1193,6 @@ body {
 
 .tabs__content.tabs__content__activating{
   z-index: 2;
-  /* position: static; */
-  /* position: relative;
-  display: block; */
 }
 
 .catalogue__artist-name{
@@ -1224,7 +1221,6 @@ body {
 
 .catalogue__artist-catalogue {
   flex: 0 0 50.4%;
-  /* padding-left: 51px; */
 }
 
 /* * CATALOGUE ACCORDION * */
@@ -1377,7 +1373,6 @@ body {
   padding-right: 43px;
   padding-bottom: 58px;
   columns: 3;
-  /* min-height: 342px; */
 }
 
 .catalogue__artist-link{
@@ -1392,7 +1387,6 @@ body {
   text-decoration: none;
   text-decoration-color: transparent;
   outline: none;
-  /* border: 2px solid transparent; */
   transition: color var(--state-delay), border-color var(--state-delay);
   break-inside: avoid;
 }
