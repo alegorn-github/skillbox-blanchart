@@ -1,11 +1,13 @@
 'use strict';
 
+const BLANCHART = {};
+
 (()=>{
 
   const animateCSS = (element, animation, prefix = 'animate__') => {
     return new Promise((resolve, reject) => {
       const animationName = `${prefix}${animation}`;
-      const node = document.querySelector(element);
+      const node = element;
 
       node.classList.add(`${prefix}animated`, animationName);
 
@@ -33,7 +35,6 @@
     container.insertBefore(nav,enterLink);
 
     burgerMenu.classList.remove('active');
-    document.querySelector('.header__burger').focus();
   }
 
   function toggleSubmenu(event){
@@ -43,7 +44,6 @@
       event.target.closest('.menu__submenu'),
       event.target.closest('.gallery__img-link'),
       event.target.closest('.gallery__modal-window'),
-      // event.target.closest('.gallery__modal-overlay'),
       event.target.closest('.header__burger-menu'),
       event.target.classList.contains('header__burger'),
     ];
@@ -70,8 +70,14 @@
         else {
           activeItem.classList.remove('active');
         }
+        window.removeEventListener('scroll', noScroll);
+
       });
     }
+  }
+
+  function noScroll(event) {
+    window.scrollTo(0, BLANCHART.modalY);
   }
 
   document.body.addEventListener('click',toggleSubmenu);
@@ -112,7 +118,7 @@
 
       toggleOpenedClass();
       if (isBreakPoint768&&!formOpened){
-        animateCSS('.header__search-form__mobile', 'fadeInRight').then(()=>searchInput.focus());
+        animateCSS(document.querySelector('.header__search-form__mobile'), 'fadeInRight').then(()=>searchInput.focus());
       }
 
       searchInput.setAttribute('tabindex',formOpened?'0':'-1');
@@ -131,6 +137,7 @@
   document.querySelectorAll('.close-button').forEach(elem => {
     elem.addEventListener('click',(event)=>{
       document.querySelectorAll('.active').forEach(elem => {elem.classList.remove('active')}) ;
+      window.removeEventListener('scroll', noScroll);
     })
   })
 
@@ -165,21 +172,33 @@
         const modalDesc = modalWindow.querySelector('.gallery__modal-desc');
         const bodyHeight = document.body.clientHeight;
 
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+
         modalPicture.innerHTML = '';
         modalDesc.innerHTML = '';
         modalPicture.appendChild(picture);
         modalDesc.appendChild(imageDesc);
 
-        // document.body.appendChild(modalOverlay);
         modalOverlay.style.height = bodyHeight + 'px';
         modalOverlay.classList.add('active');
 
         modalWindow.classList.add('animate__animated','animate__fadeIn');
         modalWindow.classList.add('active');
-      }
 
+        const elementRect = modalWindow.getBoundingClientRect();
+        const absoluteElementTop = elementRect.top + window.pageYOffset;
+        const middle = absoluteElementTop - (window.innerHeight / 2)  + elementRect.height / 2;
+        BLANCHART.modalY = middle;
+        scroll.animateScroll(middle);
+
+        document.addEventListener('scrollStop', event => {
+          window.removeEventListener('scroll', noScroll);
+          window.addEventListener('scroll', noScroll);
+        }, {once: true});
+      }
     });
-  })
+  });
 
   document.querySelector('.header__burger').addEventListener('click',(event)=>{
     const burgerMenu = document.querySelector('.header__burger-menu');
@@ -264,7 +283,166 @@
     },
   });
 
+  document.querySelectorAll('.handorgel').forEach(
+    (elem)=>{
+      const accordion = new handorgel(elem, {
 
-  // document.querySelector('.header__burger').click();
+        // whether multiple folds can be opened at once
+        multiSelectable: false,
+        // whether the folds are collapsible
+        collapsible: true,
+
+        // whether ARIA attributes are enabled
+        ariaEnabled: true,
+        // whether W3C keyboard shortcuts are enabled
+        keyboardInteraction: true,
+        // whether to loop header focus (sets focus back to first/last header when end/start reached)
+        carouselFocus: false,
+
+        // attribute for the header or content to open folds at initialization
+        initialOpenAttribute: 'data-open',
+        // whether to use transition at initial open
+        initialOpenTransition: false,
+        // delay used to show initial transition
+        initialOpenTransitionDelay: 200,
+
+        // header/content class if fold is open
+        headerOpenClass: 'handorgel__header--open',
+        contentOpenClass: 'handorgel__content--open',
+
+        // header/content class if fold has been opened (transition finished)
+        headerOpenedClass: 'handorgel__header--opened',
+        contentOpenedClass: 'handorgel__content--opened',
+
+        // header/content class if fold has been focused
+        headerFocusClass: 'handorgel__header--focus',
+        contentFocusClass: 'handorgel__content--focus',
+
+        // header/content class if fold is disabled
+        headerDisabledClass: 'handorgel__header--disabled',
+        contentDisabledClass: 'handorgel__content--disabled',
+
+      });
+
+      elem.querySelectorAll('.catalogue__period-btn').forEach((button,index)=>{
+        button.addEventListener('click',event=>{
+          accordion.folds[index].toggle();
+        })
+      });
+
+      accordion.on('fold:close', fold => {
+        fold.header.querySelector('.catalogue__period-btn').classList.add('handorgel--close');
+      });
+
+      accordion.on('fold:closed', fold => {
+        fold.header.querySelector('.catalogue__period-btn').classList.remove('handorgel--close');
+      });
+
+    }
+
+  )
+
+  document.querySelectorAll('.tabs__tab').forEach(element => {
+    element.addEventListener('click',event => {
+      event.preventDefault();
+      const tab = event.target;
+      const tabAnchor = tab.dataset.anchor;
+      const tabsContainer = tab.closest('.tabs');
+      let newTabContentSelector = `.tabs__content-container > .tabs__content[data-anchor=${tabAnchor}]`;
+      let newTabContent = tabsContainer.querySelector(newTabContentSelector);
+      const activeTabContent = tabsContainer.querySelector(':scope > .tabs__content-container > .tabs__content.tabs__content__active');
+
+      if (!newTabContent){
+        newTabContent = activeTabContent;
+      }
+
+      if (newTabContent.classList.contains('tabs__content__active')){
+        animateCSS(newTabContent,'fadeIn');
+      }
+      else {
+        activeTabContent.classList.add('tabs__content__deactivating');
+        activeTabContent.classList.remove('tabs__content__active');
+        animateCSS(activeTabContent,'fadeOut').then(
+          ()=>{
+            tabsContainer.querySelectorAll(':scope > .tabs__content-container > .tabs__content').forEach(
+              (elem)=>{
+                elem.classList.remove('tabs__content__activating','tabs__content__deactivating')
+              }
+            )
+          }
+        );
+
+        newTabContent.classList.add('tabs__content__active','tabs__content__activating');
+        animateCSS(newTabContent,'fadeIn');
+
+      }
+
+      const activeTab = tabsContainer.querySelector('.tabs__tab__active');
+
+      if (activeTab){
+        activeTab.classList.remove('tabs__tab__active');
+      }
+
+      tab.classList.add('tabs__tab__active');
+
+    });
+  });
+
+  document.querySelectorAll('.catalogue__artist-link').forEach(elem=>{
+    elem.addEventListener('click', event => {
+      event.preventDefault();
+      const isBreakPointMobile = getComputedStyle(document.documentElement).getPropertyValue('--break-point').replace(/("|\s)/mig,'') <= 768;
+
+      if (isBreakPointMobile) {
+        const anchor = event.target.dataset.anchor;
+        const anchorTarget = `.catalogue__artist[data-anchor=${anchor}]`;
+        const target = document.querySelector(anchorTarget);
+        scroll.animateScroll(target);
+      }
+
+    })
+  });
+
+  document.querySelector('.events__show-all-button').addEventListener('click', event => {
+    document.querySelectorAll('.events__list-item').forEach(elem => {
+      if (getComputedStyle(elem).display === 'none') {
+        elem.style.display = 'block';
+        animateCSS(elem,'fadeIn');
+      }
+    });
+    event.target.style.display = 'none';
+  });
+
+  function showEventsSlider(event){
+    const isBreakPointMobile = getComputedStyle(document.documentElement).getPropertyValue('--break-point').replace(/("|\s)/mig,'') <= 425;
+    if (isBreakPointMobile) {
+      if (BLANCHART.eventsSwiper){
+        BLANCHART.eventsSwiper.init();
+      }
+      else {
+        BLANCHART.eventsSwiper = new Swiper('.events__slider', {
+          direction: 'horizontal',
+          pagination: {
+            el : '.events__slider-pagination',
+            type: 'bullets',
+          },
+          slideClass: 'events__list-item',
+          wrapperClass: 'events__list',
+          slidesPerView: 1,
+        });
+      }
+
+    }
+    else {
+      if (BLANCHART.eventsSwiper){
+        BLANCHART.eventsSwiper.slideTo(0);
+        BLANCHART.eventsSwiper.destroy(true,true);
+      }
+
+    }
+  };
+
+  showEventsSlider();
+  window.addEventListener('resize', showEventsSlider);
 
 })()
