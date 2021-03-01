@@ -20,6 +20,12 @@ const BLANCHART = {};
       node.addEventListener('animationend', handleAnimationEnd, {once: true});
   })};
 
+  function getCSSVariable(cssVariable,returnNumber = true){
+    let result = getComputedStyle(document.documentElement).getPropertyValue(cssVariable)
+    return (returnNumber)?result.replace(/("|\s)/mig,''):result;
+
+  }
+
   function closeBurgerMenu(event){
     const burgerMenu = document.querySelector('.header__burger-menu');
     const nav = document.querySelector('.header__navigation');
@@ -105,7 +111,7 @@ const BLANCHART = {};
       searchForm.submit();
     }
     else {
-      const isBreakPoint768 = getComputedStyle(document.documentElement).getPropertyValue('--break-point').replace(/("|\s)/mig,'') === '768';
+      const isBreakPoint768 = getCSSVariable('--break-point') === '768';
       const formOpened = searchForm.classList.contains('opened');
       const toggleOpenedClass = () => {
         topHeaderContainer.classList.toggle('opened');
@@ -338,6 +344,9 @@ const BLANCHART = {};
         fold.header.querySelector('.catalogue__period-btn').classList.remove('handorgel--close');
       });
 
+      const accordionAnchor = elem.closest('.catalogue__content-container').dataset.anchor;
+
+      BLANCHART[`accordion${accordionAnchor}`] = accordion;
     }
 
   )
@@ -360,16 +369,13 @@ const BLANCHART = {};
         animateCSS(newTabContent,'fadeIn');
       }
       else {
+        activeTabContent.classList.add('tabs__content__deactivating');
+        activeTabContent.classList.remove('tabs__content__active');
         animateCSS(activeTabContent,'fadeOut').then(
           ()=>{
-            tabsContainer.querySelectorAll(':scope > .tabs__content-container > .tabs__content.tabs__content__active').forEach(
+            tabsContainer.querySelectorAll(':scope > .tabs__content-container > .tabs__content').forEach(
               (elem)=>{
-                if (elem.classList.contains('tabs__content__activating')) {
-                  elem.classList.remove('tabs__content__activating')
-                }
-                else{
-                  elem.classList.remove('tabs__content__active');
-                }
+                elem.classList.remove('tabs__content__activating','tabs__content__deactivating')
               }
             )
           }
@@ -388,13 +394,21 @@ const BLANCHART = {};
 
       tab.classList.add('tabs__tab__active');
 
+      if (tab.classList.contains('catalogue__tab-btn')){
+        const activeLink = newTabContent.querySelector(`:scope .catalogue__artist-link.tabs__tab__active`);
+        const activeFold = activeLink.closest('.handorgel__content');
+        const folds = Array.from(activeFold.parentNode.children).filter(elem => elem.classList.contains('handorgel__content') );
+        const activeFoldIndex = folds.indexOf(activeFold);
+        BLANCHART[`accordion${tabAnchor}`].folds[activeFoldIndex].open();
+      }
+
     });
   });
 
   document.querySelectorAll('.catalogue__artist-link').forEach(elem=>{
     elem.addEventListener('click', event => {
       event.preventDefault();
-      const isBreakPointMobile = getComputedStyle(document.documentElement).getPropertyValue('--break-point').replace(/("|\s)/mig,'') <= 768;
+      const isBreakPointMobile = getCSSVariable('--break-point') <= 768;
 
       if (isBreakPointMobile) {
         const anchor = event.target.dataset.anchor;
@@ -404,6 +418,142 @@ const BLANCHART = {};
       }
 
     })
+  });
+
+  document.querySelector('.events__show-all-button').addEventListener('click', event => {
+    document.querySelectorAll('.events__list-item').forEach(elem => {
+      if (getComputedStyle(elem).display === 'none') {
+        elem.style.display = 'block';
+        animateCSS(elem,'fadeIn');
+      }
+    });
+    event.target.style.display = 'none';
+  });
+
+  document.querySelectorAll('.events__details-link').forEach(elem=>{
+    elem.addEventListener('click',event => event.preventDefault())
+  });
+
+  function resizeSite(event){
+    showSliders(event);
+    hideUnchecked();
+  }
+
+  function showSliders(event){
+    const isBreakPointMobile = getCSSVariable('--break-point') <= 425;
+    if (BLANCHART.eventsSwiper){
+      BLANCHART.eventsSwiper.slideTo(0);
+      BLANCHART.eventsSwiper.destroy();
+      BLANCHART.eventsSwiper = null;
+    }
+    if (BLANCHART.publicationsSwiper){
+      BLANCHART.publicationsSwiper.slideTo(0);
+      BLANCHART.publicationsSwiper.destroy();
+      BLANCHART.publicationsSwiper = null;
+    }
+    if (isBreakPointMobile) {
+        BLANCHART.eventsSwiper = new Swiper('.events__slider', {
+          direction: 'horizontal',
+          pagination: {
+            el : '.events__slider-pagination',
+            type: 'bullets',
+          },
+          slideClass: 'events__list-item',
+          wrapperClass: 'events__list',
+          slidesPerView: 1,
+        });
+
+    }
+    else {
+      BLANCHART.publicationsSwiper = new Swiper('.publications__slider-container', {
+        direction: 'horizontal',
+        wrapperClass: 'publications__book-list',
+        slideClass: 'publications__book',
+        navigation: {
+          nextEl: '.publications__slider-nav-btn__next',
+          prevEl: '.publications__slider-nav-btn__prev',
+        },
+        pagination: {
+          el : '.publications__slider-pagination',
+          type: 'fraction'
+        },
+        breakpoints: {
+          1100:{
+            spaceBetween: 50,
+            slidesPerView: 3,
+          },
+          800: {
+            spaceBetween: 50,
+            slidesPerView: 2,
+          },
+          425: {
+            spaceBetween: 34,
+            slidesPerView: 2,
+          },
+        },
+      });
+      const pagination = document.querySelector('.publications__slider-navigation');
+      const swiper = document.querySelector('.publications__slider-container');
+    if (getCSSVariable('--break-point') <= 768){
+        const container = document.querySelector('.publications__container');
+        container.insertBefore(pagination,swiper);
+      }
+      else {
+        const bookList = document.querySelector('.publications__book-list');
+        swiper.insertBefore(pagination,bookList);
+      }
+      //
+    }
+
+  };
+
+  showSliders();
+  window.addEventListener('resize', resizeSite);
+
+  document.querySelectorAll('.publications__book-title, .publications__book-author').forEach(elem=>{
+    $clamp(elem, {clamp: '1'});
   })
+
+  const priceMask = new Inputmask({alias:'numeric', groupSeparator:' '});
+  document.querySelectorAll(".publications__price").forEach(elem => {
+    priceMask.mask(elem);
+  })
+
+  const groupButton = document.querySelector('.publications__cat-header');
+
+  function hideUnchecked() {
+    const isBreakPointMobile = getCSSVariable('--break-point') <= 425;
+
+    if (groupButton.classList.contains('publications__cat-header__closed') && isBreakPointMobile){
+      document.querySelectorAll('.publications__cat-label > .publications__cat:not(:checked)').forEach(elem => {
+        elem.parentNode.style.display = 'none';
+      })
+      animateCSS(document.querySelector('.publications__cat-group'),'fadeInUp');
+    }
+    else {
+      document.querySelectorAll('.publications__cat-label > .publications__cat').forEach(elem => {
+        elem.parentNode.style.display = 'block';
+      })
+      animateCSS(document.querySelector('.publications__cat-group'),'fadeInDown');
+    }
+    groupButton.disabled = !isBreakPointMobile;
+  }
+
+  document.querySelector('.publications__cat-header').addEventListener('click', event => {
+    groupButton.classList.toggle('publications__cat-header__closed');
+    hideUnchecked();
+  }
+  );
+  document.querySelectorAll('.publications__cat-label-close-btn').forEach(elem => {
+    elem.addEventListener('click',event => {
+      event.target.parentElement.querySelector(':scope > .publications__cat').checked = false;
+      hideUnchecked();
+    });
+  });
+
+  hideUnchecked();
+  // let clentPhoneMask = new Inputmask("+7 (999) 999-99-99");
+  // clentPhoneMask.mask(clentPhone);
+
 
 })()
