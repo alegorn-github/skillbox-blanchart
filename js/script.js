@@ -610,6 +610,6 @@ const BLANCHART = {};
 
   ];
 
-  BLANCHART.tooltips.forEach(elem => elem[0].show());
+  // BLANCHART.tooltips.forEach(elem => elem[0].show());
 
 })()
