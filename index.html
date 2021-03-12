@@ -18,6 +18,8 @@
     <script src="js/clamp.min.js"></script>
     <script src="js/handorgel.min.js"></script>
     <script src="js/inputmask.min.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
     <script src="js/script.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="css/splide-core.min.css">
@@ -920,7 +922,7 @@
               <li class="catalogue__tabs-item"><button data-anchor="be" class="catalogue__tab-btn__be catalogue__tab-btn tabs__tab"></button></li>
             </ul>
           </div>
-          <div class="tabs__content-container" id="contentContainer">
+          <div class="tabs__content-container catalogue__tabs-content-container" id="contentContainer">
             <div class="catalogue__content-container catalogue__tab-content tabs__content" data-anchor="fr">
               <p class="catalogue__desc">
                 Далеко-далеко за словесными горами, в стране гласных и согласных живут рыбные тексты. Вершину по всей продолжил оксмокс. До пояс несколько коварный дорогу большого всеми повстречался обеспечивает языкового первую, ведущими встретил вопроса составитель безопасную!
@@ -1878,7 +1880,11 @@
           <div class="publications__price-filter">
             <div class="publications__price-header">Цена</div>
             <div class="publications__price-control-container">
-              От<input class="publications__price publications__price__low" type="text" value="50">до<input class="publications__price publications__price__upper" type="text" value="25000">руб.
+              <span class="publications__price-control-text">От</span>
+              <input class="publications__price publications__price__low" type="text" value="50">
+              <span class="publications__price-control-text">до</span>
+              <input class="publications__price publications__price__upper" type="text" value="25000">
+              <span class="publications__price-control-text">руб.</span>
             </div>
           </div>
         </div>
@@ -1977,6 +1983,66 @@
               <button class="publications__order-btn">Заказать</button>
             </li>
           </ul>
+        </div>
+      </div>
+    </section>
+    <section class="projects section" id="projects">
+      <div class="container projects__container">
+        <h2 class="projects__header section__header">Проекты</h2>
+        <p class="projects__descr">
+          Предварительные выводы: постоянное информационно-пропагандистское обеспечение нашей деятельности однозначно фиксирует необходимость своевременного выполнения сверхзадачи. А ещё независимые государства смешаны с не уникальными данными до степени совершенной неузнаваемости, из-за чего возрастает их статус бесполезности. Прежде всего, постоянное информационно-пропагандистское
+          <button class="projects__tooltip" id="projectTooltipOne"></button>
+          обеспечение нашей деятельности однозначно фиксирует необходимость экономической целесообразности принимаемых решений. И нет сомнений, что действия представителей оппозиции могут быть рассмотрены
+          <button class="projects__tooltip" id="projectTooltipTwo"></button>
+          исключительно в разрезе маркетинговых и финансовых
+          <button class="projects__tooltip" id="projectTooltipThree"></button>
+          предпосылок. Банальные, но неопровержимые выводы, а также представители современных социальных резервов призывают нас к новым свершениям, которые, в свою очередь, должны быть смешаны с не уникальными данными до степени совершенной неузнаваемости. Подробнее: <a class="projects__link" href="projects/about">blanchard-art.ru/projects/about</a>
+        </p>
+        <h3 class="projects__slider-header">Партнёры проектов:</h3>
+        <div class="projects__swiper-container">
+          <div class="projects__swiper swiper-container">
+            <ul class="projects__partner-list swiper-wrapper">
+              <li class="projects__partner swiper-slide">
+                <a href="projects/partners" class="projects__partner-link"><img class="projects__logo" src="images/projects__slider__1.png" alt="Логотип партнера Freelands Foundation"></a>
+              </li>
+              <li class="projects__partner swiper-slide">
+                <a href="projects/partners" class="projects__partner-link"><img class="projects__logo" src="images/projects__slider__2.png" alt="Логотип партнера Institute for Contemporary Art"></a>
+              </li>
+              <li class="projects__partner swiper-slide">
+                <a href="projects/partners" class="projects__partner-link"><img class="projects__logo" src="images/projects__slider__3.png" alt="Логотип партнера Workhouse. Arts center"></a>
+              </li>
+              <li class="projects__partner swiper-slide">
+                <a href="projects/partners" class="projects__partner-link"><img class="projects__logo" src="images/projects__slider__4.png" alt="Логотип партнера 1849"></a>
+              </li>
+              <li class="projects__partner swiper-slide">
+                <a href="projects/partners" class="projects__partner-link"><img class="projects__logo" src="images/projects__slider__5.png" alt="Логотип партнера Hiscox"></a>
+              </li>
+              <li class="projects__partner swiper-slide">
+                <a href="projects/partners" class="projects__partner-link"><img class="projects__logo" src="images/projects__slider__6.png" alt="Логотип партнера Camden"></a>
+              </li>
+              <li class="projects__partner swiper-slide">
+                <a href="projects/partners" class="projects__partner-link"><img class="projects__logo" src="images/projects__slider__7.png" alt="Логотип партнера Stassen"></a>
+              </li>
+              <li class="projects__partner swiper-slide">
+                <a href="projects/partners" class="projects__partner-link"><img class="projects__logo" src="images/projects__slider__8.png" alt="Логотип партнера Watts Gallery Artist Village"></a>
+              </li>
+              <li class="projects__partner swiper-slide">
+                <a href="projects/partners" class="projects__partner-link"><img class="projects__logo" src="images/projects__slider__9.png" alt="Логотип партнера Esad"></a>
+              </li>
+
+            </ul>
+            <div class="projects__button-prev projects__button swiper-button-prev">
+              <svg class="projects__slider-nav-svg" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path class="projects__slider-nav-circle" d="M15 1C7.26801 1 0.999999 7.26801 1 15C1 22.732 7.26801 29 15 29C22.732 29 29 22.732 29 15C29 7.26801 22.732 0.999999 15 1Z" fill="" stroke="" stroke-width="2"/>
+                <path class="projects__slider-nav-arrow" d="M16 10L11 15L16 20" stroke=""/>
+              </svg>
+            </div>
+            <div class="projects__button-next projects__button swiper-button-next">
+              <svg class="projects__slider-nav-svg" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path class="projects__slider-nav-circle" d="M15 1C22.732 1 29 7.26801 29 15C29 22.732 22.732 29 15 29C7.26801 29 1 22.732 1 15C1 7.26801 7.26802 0.999999 15 1Z" fill="" stroke="" stroke-width="2"/>
+                <path class="projects__slider-nav-arrow" d="M14 10L19 15L14 20" stroke=""/>
+              </svg>
+            </div>
         </div>
       </div>
     </section>
