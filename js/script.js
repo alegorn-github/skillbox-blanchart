@@ -494,7 +494,7 @@ const BLANCHART = {};
       });
       const pagination = document.querySelector('.publications__slider-navigation');
       const swiper = document.querySelector('.publications__slider-container');
-    if (getCSSVariable('--break-point') <= 768){
+      if (getCSSVariable('--break-point') <= 768){
         const container = document.querySelector('.publications__container');
         container.insertBefore(pagination,swiper);
       }
@@ -503,6 +503,47 @@ const BLANCHART = {};
         swiper.insertBefore(pagination,bookList);
       }
       //
+    }
+
+    if (!BLANCHART.projectsSwiper) {
+      BLANCHART.projectsSwiper = new Swiper('.projects__swiper', {
+        direction: 'horizontal',
+        wrapperClass: 'projects__partner-list',
+        slideClass: 'projects__partner',
+        navigation: {
+          nextEl: '.projects__button-next',
+          prevEl: '.projects__button-prev',
+        },
+        breakpoints: {
+          1100:{
+            spaceBetween: 50,
+            slidesPerView: 3,
+          },
+          800: {
+            spaceBetween: 50,
+            slidesPerView: 2,
+          },
+          500: {
+            spaceBetween: 34,
+            slidesPerView: 2,
+          },
+          200: {
+            spaceBetween: 0,
+            slidesPerView: 1,
+          },
+        },
+      });
+
+      const btnPrev = document.querySelector('.projects__button-prev');
+      const btnNext = document.querySelector('.projects__button-next');
+      // const swiper = document.querySelector('.publications__slider-container');
+      const container = document.querySelector('.projects__swiper-container');
+      container.appendChild(btnPrev);
+      container.appendChild(btnNext);
+
+
+      // document.querySelectorAll('.projects__button')
+
     }
 
   };
@@ -552,8 +593,23 @@ const BLANCHART = {};
   });
 
   hideUnchecked();
-  // let clentPhoneMask = new Inputmask("+7 (999) 999-99-99");
-  // clentPhoneMask.mask(clentPhone);
 
+  BLANCHART.tooltips = [
+    tippy('#projectTooltipOne', {
+      content: 'Пример современных тенденций - современная методология разработки',
+      theme: 'blanchard',
+    }),
+    tippy('#projectTooltipTwo', {
+      content: 'Приятно, граждане, наблюдать, как сделанные на базе аналитики выводы вызывают у вас эмоции',
+      theme: 'blanchard',
+    }),
+    tippy('#projectTooltipThree', {
+      content: 'В стремлении повысить качество',
+      theme: 'blanchard',
+    }),
+
+  ];
+
+  BLANCHART.tooltips.forEach(elem => elem[0].show());
 
 })()
