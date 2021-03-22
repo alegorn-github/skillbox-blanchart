@@ -20,6 +20,7 @@
     <script src="js/inputmask.min.js"></script>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=&lang=ru_RU" ></script>
     <script src="js/script.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="css/splide-core.min.css">
@@ -1750,135 +1751,161 @@
       <div class="container publications__container">
         <div class="publications__control-container">
           <h2 class="section__header publications__header">Издания</h2>
-          <button class="publications__cat-header publications__cat-header__closed">Категории
-            <svg class="publications__cat-header-icon" width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M11 1L6 6L0.999998 1" stroke=""/>
-            </svg>
-          </button>
-          <div class="publications__cat-group publications__cat-group__closed">
-            <label for="cat01" class="publications__cat-label">
-              <input class="publications__cat" type="checkbox" id="cat01">
-              <span class="publications__cat-text">Бестселлеры</span>
+          <h3 class="publications__cat-header">
+            <button class="publications__cat-header-btn publications__cat-header-btn__closed">Категории
+              <svg class="publications__cat-header-icon" width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11 1L6 6L0.999998 1" stroke=""/>
+              </svg>
+            </button>
+          </h3>
+          <ul class="publications__cat-group publications__cat-group__closed">
+            <li class="publications__cat-item">
+              <label for="cat01" class="publications__cat-label">
+                <input class="publications__cat" type="checkbox" id="cat01">
+                <span class="publications__cat-text">Бестселлеры</span>
+              </label>
               <button class="publications__cat-label-close-btn">
                 <svg class="publications__cat-label-close-icon" width="10" height="10" viewBox="0 0 16 16" fill="" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M0.666641 15.3043L15.3333 3.17761e-05L16 0.695679L1.33331 15.9999L0.666641 15.3043Z" fill=""/>
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M0.666725 -2.96187e-06L15.3334 15.3042L14.6667 15.9999L5.76143e-05 0.695644L0.666725 -2.96187e-06Z" fill=""/>
                 </svg>
               </button>
-            </label>
-            <label for="cat02" class="publications__cat-label">
-              <input class="publications__cat" type="checkbox" id="cat02">
-              <span class="publications__cat-text">Искусство</span>
+            </li>
+            <li class="publications__cat-item">
+              <label for="cat02" class="publications__cat-label">
+                <input class="publications__cat" type="checkbox" id="cat02">
+                <span class="publications__cat-text">Искусство</span>
+              </label>
               <button class="publications__cat-label-close-btn">
                 <svg class="publications__cat-label-close-icon" width="10" height="10" viewBox="0 0 16 16" fill="" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M0.666641 15.3043L15.3333 3.17761e-05L16 0.695679L1.33331 15.9999L0.666641 15.3043Z" fill=""/>
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M0.666725 -2.96187e-06L15.3334 15.3042L14.6667 15.9999L5.76143e-05 0.695644L0.666725 -2.96187e-06Z" fill=""/>
                 </svg>
               </button>
-            </label>
-            <label for="cat03" class="publications__cat-label">
-              <input class="publications__cat" type="checkbox" id="cat03">
-              <span class="publications__cat-text">Архитектура</span>
+            </li>
+            <li class="publications__cat-item">
+              <label for="cat03" class="publications__cat-label">
+                <input class="publications__cat" type="checkbox" id="cat03">
+                <span class="publications__cat-text">Архитектура</span>
+              </label>
               <button class="publications__cat-label-close-btn">
                 <svg class="publications__cat-label-close-icon" width="10" height="10" viewBox="0 0 16 16" fill="" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M0.666641 15.3043L15.3333 3.17761e-05L16 0.695679L1.33331 15.9999L0.666641 15.3043Z" fill=""/>
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M0.666725 -2.96187e-06L15.3334 15.3042L14.6667 15.9999L5.76143e-05 0.695644L0.666725 -2.96187e-06Z" fill=""/>
                 </svg>
               </button>
-            </label>
-            <label for="cat04" class="publications__cat-label">
-              <input class="publications__cat" type="checkbox" id="cat04" checked>
-              <span class="publications__cat-text">Дизайн</span>
+            </li>
+            <li class="publications__cat-item">
+              <label for="cat04" class="publications__cat-label">
+                <input class="publications__cat" type="checkbox" id="cat04" checked>
+                <span class="publications__cat-text">Дизайн</span>
+              </label>
               <button class="publications__cat-label-close-btn">
                 <svg class="publications__cat-label-close-icon" width="10" height="10" viewBox="0 0 16 16" fill="" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M0.666641 15.3043L15.3333 3.17761e-05L16 0.695679L1.33331 15.9999L0.666641 15.3043Z" fill=""/>
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M0.666725 -2.96187e-06L15.3334 15.3042L14.6667 15.9999L5.76143e-05 0.695644L0.666725 -2.96187e-06Z" fill=""/>
                 </svg>
               </button>
-            </label>
-            <label for="cat05" class="publications__cat-label">
-              <input class="publications__cat" type="checkbox" id="cat05">
-            <span class="publications__cat-text">Мода</span>
-            <button class="publications__cat-label-close-btn">
-                <svg class="publications__cat-label-close-icon" width="10" height="10" viewBox="0 0 16 16" fill="" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M0.666641 15.3043L15.3333 3.17761e-05L16 0.695679L1.33331 15.9999L0.666641 15.3043Z" fill=""/>
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M0.666725 -2.96187e-06L15.3334 15.3042L14.6667 15.9999L5.76143e-05 0.695644L0.666725 -2.96187e-06Z" fill=""/>
-                </svg>
-              </button>
-            </label>
-            <label for="cat06" class="publications__cat-label">
-              <input class="publications__cat" type="checkbox" id="cat06">
-             <span class="publications__cat-text">Детям</span>
+            </li>
+            <li class="publications__cat-item">
+              <label for="cat05" class="publications__cat-label">
+                <input class="publications__cat" type="checkbox" id="cat05">
+                <span class="publications__cat-text">Мода</span>
+              </label>
               <button class="publications__cat-label-close-btn">
                 <svg class="publications__cat-label-close-icon" width="10" height="10" viewBox="0 0 16 16" fill="" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M0.666641 15.3043L15.3333 3.17761e-05L16 0.695679L1.33331 15.9999L0.666641 15.3043Z" fill=""/>
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M0.666725 -2.96187e-06L15.3334 15.3042L14.6667 15.9999L5.76143e-05 0.695644L0.666725 -2.96187e-06Z" fill=""/>
                 </svg>
               </button>
-            </label>
-            <label for="cat07" class="publications__cat-label">
-              <input class="publications__cat" type="checkbox" id="cat07">
-              <span class="publications__cat-text">Художественная литература</span>
+            </li>
+            <li class="publications__cat-item">
+              <label for="cat06" class="publications__cat-label">
+                <input class="publications__cat" type="checkbox" id="cat06">
+                <span class="publications__cat-text">Детям</span>
+              </label>
               <button class="publications__cat-label-close-btn">
                 <svg class="publications__cat-label-close-icon" width="10" height="10" viewBox="0 0 16 16" fill="" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M0.666641 15.3043L15.3333 3.17761e-05L16 0.695679L1.33331 15.9999L0.666641 15.3043Z" fill=""/>
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M0.666725 -2.96187e-06L15.3334 15.3042L14.6667 15.9999L5.76143e-05 0.695644L0.666725 -2.96187e-06Z" fill=""/>
                 </svg>
               </button>
-            </label>
-            <label for="cat08" class="publications__cat-label">
-              <input class="publications__cat" type="checkbox" id="cat08">
-              <span class="publications__cat-text">Публицистика</span>
+            </li>
+            <li class="publications__cat-item">
+              <label for="cat07" class="publications__cat-label">
+                <input class="publications__cat" type="checkbox" id="cat07">
+                <span class="publications__cat-text">Художественная литература</span>
+              </label>
               <button class="publications__cat-label-close-btn">
                 <svg class="publications__cat-label-close-icon" width="10" height="10" viewBox="0 0 16 16" fill="" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M0.666641 15.3043L15.3333 3.17761e-05L16 0.695679L1.33331 15.9999L0.666641 15.3043Z" fill=""/>
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M0.666725 -2.96187e-06L15.3334 15.3042L14.6667 15.9999L5.76143e-05 0.695644L0.666725 -2.96187e-06Z" fill=""/>
                 </svg>
               </button>
-            </label>
-            <label for="cat09" class="publications__cat-label">
-              <input class="publications__cat" type="checkbox" id="cat09">
-              <span class="publications__cat-text">Путеводители</span>
+            </li>
+            <li class="publications__cat-item">
+              <label for="cat08" class="publications__cat-label">
+                <input class="publications__cat" type="checkbox" id="cat08">
+                <span class="publications__cat-text">Публицистика</span>
+              </label>
               <button class="publications__cat-label-close-btn">
                 <svg class="publications__cat-label-close-icon" width="10" height="10" viewBox="0 0 16 16" fill="" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M0.666641 15.3043L15.3333 3.17761e-05L16 0.695679L1.33331 15.9999L0.666641 15.3043Z" fill=""/>
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M0.666725 -2.96187e-06L15.3334 15.3042L14.6667 15.9999L5.76143e-05 0.695644L0.666725 -2.96187e-06Z" fill=""/>
                 </svg>
               </button>
-            </label>
-            <label for="cat10" class="publications__cat-label">
-              <input class="publications__cat" type="checkbox" id="cat10">
-              <span class="publications__cat-text">Философия</span>
+            </li>
+            <li class="publications__cat-item">
+              <label for="cat09" class="publications__cat-label">
+                <input class="publications__cat" type="checkbox" id="cat09">
+                <span class="publications__cat-text">Путеводители</span>
+              </label>
               <button class="publications__cat-label-close-btn">
                 <svg class="publications__cat-label-close-icon" width="10" height="10" viewBox="0 0 16 16" fill="" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M0.666641 15.3043L15.3333 3.17761e-05L16 0.695679L1.33331 15.9999L0.666641 15.3043Z" fill=""/>
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M0.666725 -2.96187e-06L15.3334 15.3042L14.6667 15.9999L5.76143e-05 0.695644L0.666725 -2.96187e-06Z" fill=""/>
                 </svg>
               </button>
-            </label>
-            <label for="cat11" class="publications__cat-label">
-              <input class="publications__cat" type="checkbox" id="cat11">
-              <span class="publications__cat-text">Учебная литература</span>
+            </li>
+            <li class="publications__cat-item">
+              <label for="cat10" class="publications__cat-label">
+                <input class="publications__cat" type="checkbox" id="cat10">
+                <span class="publications__cat-text">Философия</span>
+              </label>
               <button class="publications__cat-label-close-btn">
                 <svg class="publications__cat-label-close-icon" width="10" height="10" viewBox="0 0 16 16" fill="" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M0.666641 15.3043L15.3333 3.17761e-05L16 0.695679L1.33331 15.9999L0.666641 15.3043Z" fill=""/>
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M0.666725 -2.96187e-06L15.3334 15.3042L14.6667 15.9999L5.76143e-05 0.695644L0.666725 -2.96187e-06Z" fill=""/>
                 </svg>
               </button>
-            </label>
-            <label for="cat12" class="publications__cat-label">
-              <input class="publications__cat" type="checkbox" id="cat12">
-              <span class="publications__cat-text">Журналы и газеты</span>
+            </li>
+            <li class="publications__cat-item">
+              <label for="cat11" class="publications__cat-label">
+                <input class="publications__cat" type="checkbox" id="cat11">
+                <span class="publications__cat-text">Учебная литература</span>
+              </label>
               <button class="publications__cat-label-close-btn">
                 <svg class="publications__cat-label-close-icon" width="10" height="10" viewBox="0 0 16 16" fill="" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M0.666641 15.3043L15.3333 3.17761e-05L16 0.695679L1.33331 15.9999L0.666641 15.3043Z" fill=""/>
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M0.666725 -2.96187e-06L15.3334 15.3042L14.6667 15.9999L5.76143e-05 0.695644L0.666725 -2.96187e-06Z" fill=""/>
                 </svg>
               </button>
-            </label>
-          </div>
+            </li>
+            <li class="publications__cat-item">
+              <label for="cat12" class="publications__cat-label">
+                <input class="publications__cat" type="checkbox" id="cat12">
+                <span class="publications__cat-text">Журналы и газеты</span>
+              </label>
+              <button class="publications__cat-label-close-btn">
+                <svg class="publications__cat-label-close-icon" width="10" height="10" viewBox="0 0 16 16" fill="" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M0.666641 15.3043L15.3333 3.17761e-05L16 0.695679L1.33331 15.9999L0.666641 15.3043Z" fill=""/>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M0.666725 -2.96187e-06L15.3334 15.3042L14.6667 15.9999L5.76143e-05 0.695644L0.666725 -2.96187e-06Z" fill=""/>
+                </svg>
+              </button>
+            </li>
+          </ul>
           <div class="publications__price-filter">
-            <div class="publications__price-header">Цена</div>
+            <h3 class="publications__price-header">Цена</h3>
             <div class="publications__price-control-container">
               <span class="publications__price-control-text">От</span>
               <input class="publications__price publications__price__low" type="text" value="50">
@@ -2043,9 +2070,58 @@
                 <path class="projects__slider-nav-arrow" d="M14 10L19 15L14 20" stroke=""/>
               </svg>
             </div>
+          </div>
         </div>
       </div>
     </section>
+    <section class="contacts section" id="contacts">
+      <div class="container contacts__container">
+        <h2 class="contacts__header section__header">
+          Контакты
+        </h2>
+      </div>
+      <div class="contacts__content-wrapper">
+        <div class="contacts__form-container">
+          <h3 class="contacts__hall-name">
+            Шоурум №4
+          </h3>
+          <address class="contacts__address">
+            Леонтьевский переулок, дом 5, строение 1
+          </address>
+          <form class="contacts__form" action="mailto:order@blanchard.ru" enctype="application/x-www-form-urlencoded">
+            <h3 class="contacts__form-header">
+              Заказать обратный звонок
+            </h3>
+            <input type="text" class="contacts__input contacts__name-input" name="clientName" placeholder="Имя*" required>
+            <input type="text" class="contacts__input contacts__phone-input" name="clientPhone" placeholder="Телефон*" required>
+            <input type="hidden" name="subject" value="Обратный звонок">
+            <input type="hidden" name="body" value="Обратный звонок">
+            <!-- <textarea name="body" id="" cols="30" rows="10"></textarea> -->
+            <button class="contacts__submit">Заказать</button>
+          </form>
+          <span class="contacts__messengers-header">
+            Связаться в один клик
+          </span>
+          <a href="https://wa.me/78002226521" class="contacts__whatsup contacts__messengers"></a>
+          <a href="tg://resolve?domain=skillboxru" class="contacts__telegram contacts__messengers"></a>
+        </div>
+        <div class="contacts__map-wrapper">
+          <div class="contacts__map" id="map"></div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="container footer__container">
+        <a class="interactive-element footer__logo-link" href=".">
+          <img class="footer__logo" src="images/logo.svg" alt="Логотип">
+        </a>
+        <div class="footer__social-container">
+          <a class="interactive-element footer__social footer__vk" href="https://vk.com/skillbox_education"></a>
+          <a class="interactive-element footer__social footer__insta" href="https://www.instagram.com/skillbox.ru/"></a>
+          <a class="interactive-element footer__social footer__fb" href="https://www.facebook.com/skillboxru/"></a>
+        </div>
+      </div>
+    </footer>
     <div class="header__burger-menu burger-menu">
       <button class="burger-menu__close-button close-button" tabindex="0">
         <svg class="burger-menu__close-icon" viewBox="0 0 16 16" fill="" xmlns="http://www.w3.org/2000/svg">
