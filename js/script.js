@@ -437,6 +437,7 @@ const BLANCHART = {};
   function resizeSite(event){
     showSliders(event);
     hideUnchecked();
+    moveHall();
   }
 
   function showSliders(event){
@@ -560,37 +561,40 @@ const BLANCHART = {};
     priceMask.mask(elem);
   })
 
-  const groupButton = document.querySelector('.publications__cat-header');
+  const groupButton = document.querySelector('.publications__cat-header-btn');
 
   function hideUnchecked() {
     const isBreakPointMobile = getCSSVariable('--break-point') <= 425;
 
-    if (groupButton.classList.contains('publications__cat-header__closed') && isBreakPointMobile){
-      document.querySelectorAll('.publications__cat-label > .publications__cat:not(:checked)').forEach(elem => {
-        elem.parentNode.style.display = 'none';
+    if (groupButton.classList.contains('publications__cat-header-btn__closed') && isBreakPointMobile){
+      document.querySelectorAll('.publications__cat-item .publications__cat:not(:checked)').forEach(elem => {
+        elem.closest('.publications__cat-item').style.display = 'none';
       })
       animateCSS(document.querySelector('.publications__cat-group'),'fadeInUp');
     }
     else {
-      document.querySelectorAll('.publications__cat-label > .publications__cat').forEach(elem => {
-        elem.parentNode.style.display = 'block';
+      document.querySelectorAll('.publications__cat-item').forEach(elem => {
+        elem.style.display = 'block';
       })
       animateCSS(document.querySelector('.publications__cat-group'),'fadeInDown');
     }
     groupButton.disabled = !isBreakPointMobile;
   }
 
-  document.querySelector('.publications__cat-header').addEventListener('click', event => {
-    groupButton.classList.toggle('publications__cat-header__closed');
+  document.querySelector('.publications__cat-header-btn').addEventListener('click', event => {
+    groupButton.classList.toggle('publications__cat-header-btn__closed');
+    document.querySelector('.publications__cat-group').classList.toggle('publications__cat-group__closed');
     hideUnchecked();
   }
   );
+
   document.querySelectorAll('.publications__cat-label-close-btn').forEach(elem => {
     elem.addEventListener('click',event => {
-      event.target.parentElement.querySelector(':scope > .publications__cat').checked = false;
+      event.target.closest('.publications__cat-item').querySelector(':scope .publications__cat').checked = false;
       hideUnchecked();
     });
   });
+
 
   hideUnchecked();
 
@@ -610,6 +614,89 @@ const BLANCHART = {};
 
   ];
 
-  // BLANCHART.tooltips.forEach(elem => elem[0].show());
+  ymaps.ready(mapInit);
+
+  function mapInit() {
+
+    BLANCHART.geolocationControl = new ymaps.control.GeolocationControl({
+      options: {
+        position : {
+          top: 358,
+          bottom: "auto",
+          left: "auto",
+          right: 10,
+        },
+      }
+    });
+
+    BLANCHART.zoomControl = new ymaps.control.ZoomControl({
+      options: {
+          size: "small",
+          position : {
+            top: 265,
+            bottom: "auto",
+            left: "auto",
+            right: 10,
+          },
+      }
+    });
+
+    BLANCHART.myPlacemark = new ymaps.Placemark( [55.758463, 37.601079], {
+      hintContent: 'Blanchard',
+      balloonContent: 'Blanchard'
+      }, {
+          iconLayout: 'default#image',
+          iconImageHref: 'images/contacts__map-marker.svg',
+          iconImageSize: [20, 20],
+    });
+
+    BLANCHART.myMap = new ymaps.Map('map',
+      {
+        center: [55.758463, 37.601079],
+        zoom: 14,
+        controls: [BLANCHART.geolocationControl, BLANCHART.zoomControl],
+      },
+      {
+        searchControlProvider: 'yandex#search',
+        suppressMapOpenBlock: true,
+      }
+    );
+
+    BLANCHART.myMap.geoObjects.add(BLANCHART.myPlacemark);
+    BLANCHART.myMap.behaviors.disable('scrollZoom');
+
+  }
+
+  function moveHall() {
+    const hallName = document.querySelector('.contacts__hall-name');
+    const hallAddress = document.querySelector('.contacts__address');
+    if (getCSSVariable('--break-point') <= 425){
+      const contactsContainer = document.querySelector('.contacts__container');
+      contactsContainer.appendChild(hallName);
+      contactsContainer.appendChild(hallAddress);
+    }
+    else {
+      const formContainer = document.querySelector('.contacts__form-container');
+      const contactsForm = document.querySelector('.contacts__form');
+      formContainer.insertBefore(hallName, contactsForm);
+      formContainer.insertBefore(hallAddress, contactsForm);
+    }
+
+  }
+
+  moveHall();
+
+  const mailSubject = document.querySelector('.contacts__form > [name=subject]');
+  const mailBody = document.querySelector('.contacts__form > [name=body]');
+  const clientName = document.querySelector('.contacts__name-input');
+  const clientPhone = document.querySelector('.contacts__phone-input');
+  document.querySelectorAll('.contacts__input').forEach(elem => {
+    elem.addEventListener('change',event => {
+      mailSubject.value = `Заказан обратный звонок. Номер ${clientPhone.value}. ${clientName.value}`.replace(/ /g,"\xA0");
+      mailBody.value = `Прошу перезвонить мне на номер ${clientPhone.value}. ${clientName.value}`.replace(/ /g,"\xA0");
+    });
+
+  });
+
 
 })()
