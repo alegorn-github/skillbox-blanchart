@@ -4,6 +4,7 @@
       url('../fonts/opensans-regular-webfont.woff')  format('woff');
       font-weight: 400;
       font-style: normal;
+      font-display: swap;
 }
 
 @font-face {
@@ -12,6 +13,7 @@
     url('../fonts/opensans-semibold-webfont.woff') format('woff');
     font-weight: 600;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -20,6 +22,7 @@
     url('../fonts/opensans-bold-webfont.woff') format('woff');
     font-weight: 700;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -28,6 +31,7 @@
     url('../fonts/opensans-extrabold-webfont.woff') format('woff');
     font-weight: 700;
     font-style: normal;
+    font-display: swap;
 }
 
 /* * COMMON * */
@@ -223,16 +227,18 @@ body {
 
 .header__navigation{
   flex: 1 1;
+  padding-left: calc(18px + 160 * (100vw - 1100px) / 820);
+  padding-right: calc(29px + 259 * (100vw - 1100px) / 820);
   /* margin-left: -1.5vw; */
 }
 
 .header__menu {
-  width: 65.8%;
+  /* width: 65.8%; */
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0px;
-  margin-left: 9.3vw;
+  /* margin-left: 9.3vw; */
 }
 
 .header__menu-item:not(:last-child){
@@ -285,10 +291,11 @@ body {
 }
 
 .header__catalogue {
+  flex: 1 1 100%;
   margin-left: -3px;
   padding: 0;
-  flex: 1 1;
-  max-width: 65%;
+  padding-right: calc(12px + 300 * (100vw - 1100px) / 820);
+  /* max-width: 65%; */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -543,7 +550,9 @@ body {
 }
 
 .header__search-form{
+  flex: 1 1 0;
   display: flex;
+  justify-content: flex-end;
   align-items: center;
   transition: outline var(--state-delay);
   outline: 2px solid rgba(0,0,0,0);
@@ -799,6 +808,7 @@ body {
 }
 
 .gallery__slider{
+  flex: 1 1 1150px;
   position: relative;
   width: 1150px;
   height: 838px;
@@ -851,7 +861,7 @@ body {
   position: static;
   width: 30px;
   margin: 0;
-  margin-right: 9px;
+  margin-right: 19px;
 }
 
 .swiper-button-prev::after{
@@ -862,7 +872,7 @@ body {
   position: static;
   width: 30px;
   margin: 0;
-  margin-left: 9px;
+  /* margin-left: 9px; */
 }
 
 .swiper-button-next::after{
@@ -873,7 +883,7 @@ body {
   position: static;
   width: auto;
   margin: 0;
-  margin: 0 10px;
+  margin-right: 19px;
 }
 
 .gallery__swiper-wrapper{
@@ -1495,7 +1505,7 @@ body {
   position: relative;
   display: none;
   flex: 0 1 31.3%;
-  min-width: 290px;
+  /* min-width: 290px; */
   height: auto;
   margin: 0;
   margin-bottom: 52px;
@@ -2207,7 +2217,9 @@ body {
 .contacts__form-container {
   height: 100%;
   flex: 1 1 31%;
-  padding: 123px 120px 20px 8.35vw;
+  padding-left: 8.35vw;
+  padding-right: calc(120 *  (100vw - 425px) / 1495) ;
+  padding-top: calc(123 *  (100vw - 425px) / 1495) ;
   border: 1px solid var(--light-border-color);
   color: var(--main-text-color);
   overflow: hidden;
@@ -2231,7 +2243,7 @@ body {
   margin-bottom: 3px;
   font-family: 'OpensansSB', sans-serif;
   font-size: 24px;
-  /* font-weight: bold; */
+  font-weight: normal;
   line-height: 32px;
 }
 
@@ -2252,7 +2264,7 @@ body {
 
 .contacts__form-header {
   margin: 0;
-  margin-bottom: 19px;
+  margin-bottom: 16px;
   font-family: 'Opensans';
   font-size: 24px;
   line-height: 32px;
@@ -2270,7 +2282,7 @@ body {
 }
 
 .contacts__phone-input {
-  margin-bottom: 20px;
+  margin-bottom: 23px;
 }
 
 .contacts__input:focus {
@@ -2322,6 +2334,7 @@ body {
 
 .contacts__messengers-header {
   display: block;
+  margin: 0;
   margin-bottom: 18px;
   font-family: 'Opensans';
   font-size: 24px;
@@ -2351,6 +2364,7 @@ body {
   position: relative;
   background-repeat: no-repeat;
   background-size: cover;
+  transition: filter var(--state-delay);
 }
 
 .contacts__messengers:hover{
@@ -2556,6 +2570,7 @@ body {
 
   .header__search-form__mobile{
     position: relative;
+    flex: 0 1 30px;
     display: block;
     width: 30px;
     height: 30px;
@@ -3115,7 +3130,7 @@ body {
   }
 
   .projects__logo {
-    height: 5vw;
+    height: calc(17px + 38 * (100vw - 425px) / 675);
   }
 
   /* * 1024 CONTACTS * */
@@ -3129,7 +3144,8 @@ body {
 
   .contacts__form-container {
     padding-left: 4.9vw;
-    padding-right: 95px;
+    padding-right: calc(95 *  (100vw - 425px) / 599) ;
+    padding-top: calc(123 *  (100vw - 425px) / 599) ;
   }
 
   .contacts__map [class *= controls__control]{
@@ -3384,7 +3400,7 @@ body {
   .gallery__slider{
     position: relative;
     width: 87vw;
-    height: 700px;
+    flex: 1 1 700px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -3394,6 +3410,10 @@ body {
 
   .gallery__swiper-wrapper {
     height: inherit;
+  }
+
+  .gallery__slider-pagination {
+    margin-right: 10px;
   }
 
   .gallery__img-container {
@@ -3524,6 +3544,9 @@ body {
 
   .events__descr-container {
     padding: 5px 21px 10px 33px;
+    padding-left: calc(7px + 26 * (100vw - 425px) / 343);
+    padding-right: calc(6px + 15 * (100vw - 425px) / 343);
+
   }
 
   /* * 768 PUBLICATIONS * */
@@ -3600,6 +3623,7 @@ body {
 
   .projects__swiper {
     width: 84%;
+    width: calc(260px + 300 * (100vw - 420px) / 343);
   }
 
   .projects__partner {
@@ -3622,13 +3646,18 @@ body {
 
   .contacts__form-container {
     padding-left: 6.6vw;
-    padding-right: 40px;
+    padding-right: calc(40 *  (100vw - 320px) / 448) ;
+    padding-top: calc(123 *  (100vw - 320px) / 448) ;
   }
 
   /* * 768 FOOTER * */
 
   .footer {
     padding: 40px 0 35px;
+  }
+
+  .footer__logo {
+    height: calc(22px + 18 * (100vw - 425px) / 343);
   }
 }
 
@@ -3941,7 +3970,8 @@ body {
 
   .gallery__slider{
     width: 90vw;
-    height: 447px;
+    /* height: 447px; */
+    flex:1 1 447px;
     flex-direction: column-reverse;
     align-items: center;
   }
@@ -4423,12 +4453,12 @@ body {
   }
 
   .contacts__form-container {
-    flex: 1 1 0;
+    flex: 1 1 50%;
     padding: 20px 4vw 27px 4vw;
   }
 
   .contacts__map-wrapper {
-    flex: 1 1 317px;
+    flex: 0 1 317px;
     height: 317px;
   }
 

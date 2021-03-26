@@ -686,17 +686,17 @@ const BLANCHART = {};
 
   moveHall();
 
-  const mailSubject = document.querySelector('.contacts__form > [name=subject]');
-  const mailBody = document.querySelector('.contacts__form > [name=body]');
-  const clientName = document.querySelector('.contacts__name-input');
-  const clientPhone = document.querySelector('.contacts__phone-input');
-  document.querySelectorAll('.contacts__input').forEach(elem => {
-    elem.addEventListener('change',event => {
-      mailSubject.value = `Заказан обратный звонок. Номер ${clientPhone.value}. ${clientName.value}`.replace(/ /g,"\xA0");
-      mailBody.value = `Прошу перезвонить мне на номер ${clientPhone.value}. ${clientName.value}`.replace(/ /g,"\xA0");
-    });
+  // const mailSubject = document.querySelector('.contacts__form > [name=subject]');
+  // const mailBody = document.querySelector('.contacts__form > [name=body]');
+  // const clientName = document.querySelector('.contacts__name-input');
+  // const clientPhone = document.querySelector('.contacts__phone-input');
+  // document.querySelectorAll('.contacts__input').forEach(elem => {
+  //   elem.addEventListener('change',event => {
+  //     mailSubject.value = `Заказан обратный звонок. Номер ${clientPhone.value}. ${clientName.value}`.replace(/ /g,"\xA0");
+  //     mailBody.value = `Прошу перезвонить мне на номер ${clientPhone.value}. ${clientName.value}`.replace(/ /g,"\xA0");
+  //   });
 
-  });
+  // });
 
 
 })()
