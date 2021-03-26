@@ -2088,20 +2088,18 @@
           <address class="contacts__address">
             Леонтьевский переулок, дом 5, строение 1
           </address>
-          <form class="contacts__form" action="mailto:order@blanchard.ru" enctype="application/x-www-form-urlencoded">
+          <form class="contacts__form" action="mail.php" method="POST">
             <h3 class="contacts__form-header">
               Заказать обратный звонок
             </h3>
             <input type="text" class="contacts__input contacts__name-input" name="clientName" placeholder="Имя*" required>
             <input type="text" class="contacts__input contacts__phone-input" name="clientPhone" placeholder="Телефон*" required>
-            <input type="hidden" name="subject" value="Обратный звонок">
-            <input type="hidden" name="body" value="Обратный звонок">
-            <!-- <textarea name="body" id="" cols="30" rows="10"></textarea> -->
+            <input type="hidden" name="submit" value="1">
             <button class="contacts__submit">Заказать</button>
           </form>
-          <span class="contacts__messengers-header">
+          <h3 class="contacts__messengers-header">
             Связаться в один клик
-          </span>
+          </h3>
           <a href="https://wa.me/78002226521" class="contacts__whatsup contacts__messengers"></a>
           <a href="tg://resolve?domain=skillboxru" class="contacts__telegram contacts__messengers"></a>
         </div>
