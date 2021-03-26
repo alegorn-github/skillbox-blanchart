@@ -50,6 +50,7 @@ const BLANCHART = {};
       event.target.closest('.menu__submenu'),
       event.target.closest('.gallery__img-link'),
       event.target.closest('.gallery__modal-window'),
+      // event.target.closest('.gallery__modal-overlay'),
       event.target.closest('.header__burger-menu'),
       event.target.classList.contains('header__burger'),
     ];
@@ -194,13 +195,15 @@ const BLANCHART = {};
 
         const elementRect = modalWindow.getBoundingClientRect();
         const absoluteElementTop = elementRect.top + window.pageYOffset;
-        const middle = absoluteElementTop - (window.innerHeight / 2)  + elementRect.height / 2;
+        const middle = Math.round(absoluteElementTop - (window.innerHeight / 2)  + elementRect.height / 2);
         BLANCHART.modalY = middle;
         scroll.animateScroll(middle);
 
         document.addEventListener('scrollStop', event => {
-          window.removeEventListener('scroll', noScroll);
-          window.addEventListener('scroll', noScroll);
+          if (modalWindow.classList.contains('active')){
+            window.removeEventListener('scroll', noScroll);
+            window.addEventListener('scroll', noScroll);
+          }
         }, {once: true});
       }
     });
@@ -685,18 +688,5 @@ const BLANCHART = {};
   }
 
   moveHall();
-
-  // const mailSubject = document.querySelector('.contacts__form > [name=subject]');
-  // const mailBody = document.querySelector('.contacts__form > [name=body]');
-  // const clientName = document.querySelector('.contacts__name-input');
-  // const clientPhone = document.querySelector('.contacts__phone-input');
-  // document.querySelectorAll('.contacts__input').forEach(elem => {
-  //   elem.addEventListener('change',event => {
-  //     mailSubject.value = `Заказан обратный звонок. Номер ${clientPhone.value}. ${clientName.value}`.replace(/ /g,"\xA0");
-  //     mailBody.value = `Прошу перезвонить мне на номер ${clientPhone.value}. ${clientName.value}`.replace(/ /g,"\xA0");
-  //   });
-
-  // });
-
 
 })()
