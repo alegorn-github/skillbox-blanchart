@@ -1,8 +1,10 @@
 <?php
-if(!isset($_POST['submit']))
+header('Content-Type: text/html; charset=utf-8');
+if($_SERVER['REQUEST_METHOD'] != 'POST')
 {
 	//This page should not be accessed directly. Need to submit the form.
 	echo "Ошибка! Вы не можете получить доступ напрямую - воспользуйтесь формой";
+  exit;
 }
 $name = $_POST['clientName'];
 $phone = $_POST['clientPhone'];
