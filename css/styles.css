@@ -2197,7 +2197,10 @@ body {
 
 .contacts {
   padding-top: 4px;
+<<<<<<< HEAD
   font-family: 'Opensans', sans-serif;
+=======
+>>>>>>> 55eca62f8bc0f542bf94a65439f8171ed0e2a95f
 }
 
 .contacts__container {
@@ -2210,6 +2213,7 @@ body {
 }
 
 .contacts__content-wrapper {
+<<<<<<< HEAD
   position: relative;
   height: 700px;
   border-top: 1px solid var(--light-border-color);
@@ -2231,10 +2235,17 @@ body {
   height: 100%;
   display: flex;
   z-index: 1;
+=======
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 700px;
+>>>>>>> 55eca62f8bc0f542bf94a65439f8171ed0e2a95f
 }
 
 .contacts__form-container {
   height: 100%;
+<<<<<<< HEAD
   flex: 0 1 32.5%;
   /* padding-left: 8.35vw; */
   padding-right: calc(120 *  (100vw - 425px) / 1495) ;
@@ -2242,16 +2253,26 @@ body {
   border-right: 1px solid var(--light-border-color);
   /* border-left: none; */
   background-color: white;
+=======
+  flex: 1 1 31%;
+  padding-left: 8.35vw;
+  padding-right: calc(120 *  (100vw - 425px) / 1495) ;
+  padding-top: calc(123 *  (100vw - 425px) / 1495) ;
+  border: 1px solid var(--light-border-color);
+>>>>>>> 55eca62f8bc0f542bf94a65439f8171ed0e2a95f
   color: var(--main-text-color);
   overflow: hidden;
 }
 
+<<<<<<< HEAD
 .contacts__background-left {
   height: 100%;
   flex: 1 1 20%;
   background-color: white;
 }
 
+=======
+>>>>>>> 55eca62f8bc0f542bf94a65439f8171ed0e2a95f
 .contacts__map-wrapper {
   position: relative;
   height: 100%;
@@ -2276,6 +2297,10 @@ body {
 
 .contacts__address {
   margin-bottom: 28px;
+<<<<<<< HEAD
+=======
+  font-family: 'Opensans';
+>>>>>>> 55eca62f8bc0f542bf94a65439f8171ed0e2a95f
   font-size: 16px;
   font-style: normal;
   line-height: 32px;
@@ -2291,6 +2316,10 @@ body {
 .contacts__form-header {
   margin: 0;
   margin-bottom: 16px;
+<<<<<<< HEAD
+=======
+  font-family: 'Opensans';
+>>>>>>> 55eca62f8bc0f542bf94a65439f8171ed0e2a95f
   font-size: 24px;
   line-height: 32px;
 }
@@ -2361,6 +2390,10 @@ body {
   display: block;
   margin: 0;
   margin-bottom: 18px;
+<<<<<<< HEAD
+=======
+  font-family: 'Opensans';
+>>>>>>> 55eca62f8bc0f542bf94a65439f8171ed0e2a95f
   font-size: 24px;
 }
 
@@ -2481,6 +2514,7 @@ body {
   opacity: 1;
 }
 
+<<<<<<< HEAD
 @media (min-width:1920px){
   /* * 1920 HEADER * */
 
@@ -2509,6 +2543,8 @@ body {
 
 }
 
+=======
+>>>>>>> 55eca62f8bc0f542bf94a65439f8171ed0e2a95f
 @media (max-width:1100px){
 
   /* * 1024 COMMON * */
@@ -3191,7 +3227,15 @@ body {
   }
 
   .contacts__form-container {
+<<<<<<< HEAD
     flex: 0 1 47%;
+=======
+    flex: 1 1 52%;
+  }
+
+  .contacts__form-container {
+    padding-left: 4.9vw;
+>>>>>>> 55eca62f8bc0f542bf94a65439f8171ed0e2a95f
     padding-right: calc(95 *  (100vw - 425px) / 599) ;
     padding-top: calc(123 *  (100vw - 425px) / 599) ;
   }
@@ -3230,18 +3274,31 @@ body {
   /* * 1024 FOOTER * */
 
   .footer {
+<<<<<<< HEAD
     padding: 40px 0 35px;
+=======
+    padding: 40px 0 41px;
+>>>>>>> 55eca62f8bc0f542bf94a65439f8171ed0e2a95f
   }
 
   .footer__social {
     width: 62px;
     height: 62px;
+<<<<<<< HEAD
   }
 
   .footer__social:not(:last-child) {
     margin-right: 24px;
   }
 
+=======
+  }
+
+  .footer__social:not(:last-child) {
+    margin-right: 24px;
+  }
+
+>>>>>>> 55eca62f8bc0f542bf94a65439f8171ed0e2a95f
 }
 
 @media(max-width:768px){
@@ -3689,7 +3746,15 @@ body {
   }
 
   .contacts__form-container {
+<<<<<<< HEAD
     flex: 0 1 57%;
+=======
+    flex: 1 1 72%;
+  }
+
+  .contacts__form-container {
+    padding-left: 6.6vw;
+>>>>>>> 55eca62f8bc0f542bf94a65439f8171ed0e2a95f
     padding-right: calc(40 *  (100vw - 320px) / 448) ;
     padding-top: calc(123 *  (100vw - 320px) / 448) ;
   }
@@ -4485,7 +4550,11 @@ body {
   /* * 425 CONTACTS * */
 
   .contacts__container {
+<<<<<<< HEAD
     padding-right: 14px;
+=======
+    padding-right: 4.5vw;
+>>>>>>> 55eca62f8bc0f542bf94a65439f8171ed0e2a95f
   }
 
   .contacts__header {
@@ -4493,17 +4562,24 @@ body {
   }
 
   .contacts__content-wrapper {
+<<<<<<< HEAD
     display: flex;
+=======
+>>>>>>> 55eca62f8bc0f542bf94a65439f8171ed0e2a95f
     flex-direction: column-reverse;
     justify-content: flex-start;
     align-items: stretch;
     width: 100%;
     height: initial;
+<<<<<<< HEAD
     border-top: none;
+=======
+>>>>>>> 55eca62f8bc0f542bf94a65439f8171ed0e2a95f
   }
 
   .contacts__form-container {
     flex: 1 1 50%;
+<<<<<<< HEAD
     padding: 21px 0 27px 0;
     border-right: none;
   }
@@ -4520,6 +4596,12 @@ body {
 
   .contacts__map-container {
     position: static;
+=======
+    padding: 20px 4vw 27px 4vw;
+  }
+
+  .contacts__map-wrapper {
+>>>>>>> 55eca62f8bc0f542bf94a65439f8171ed0e2a95f
     flex: 0 1 317px;
     height: 317px;
   }
