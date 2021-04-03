@@ -155,7 +155,8 @@ const BLANCHART = {};
       const modalWindow = document.querySelector('.gallery__modal-window');
       const modalOverlay = document.querySelector('.gallery__modal-overlay');
 
-      if (document.documentElement.clientWidth <= 425){
+
+      if (document.documentElement.clientWidth <= 1100){
         const galleryContainer = document.querySelector('.gallery__container');
         galleryContainer.appendChild(modalWindow);
         galleryContainer.appendChild(modalOverlay);
@@ -164,19 +165,17 @@ const BLANCHART = {};
         const gallerySlider = document.querySelector('.gallery__slider');
         gallerySlider.appendChild(modalWindow);
         gallerySlider.appendChild(modalOverlay);
-
       }
 
       if (modalWindow.classList.contains('active')){
         modalOverlay.classList.remove('active');
-        // modalWindow.appendChild(modalOverlay);
         modalWindow.classList.remove('active');
       }
       else {
         const picture = event.target.querySelector('.gallery__picture').cloneNode(true);
         const imageDesc = event.target.querySelector('.gallery__img-desc').cloneNode(true);
-        const modalPicture = modalWindow.querySelector('.gallery__modal-img');
-        const modalDesc = modalWindow.querySelector('.gallery__modal-desc');
+        const modalPicture = modalWindow.querySelector(':scope .gallery__modal-img');
+        const modalDesc = modalWindow.querySelector(':scope .gallery__modal-desc');
         const bodyHeight = document.body.clientHeight;
 
         let vh = window.innerHeight * 0.01;
@@ -186,6 +185,15 @@ const BLANCHART = {};
         modalDesc.innerHTML = '';
         modalPicture.appendChild(picture);
         modalDesc.appendChild(imageDesc);
+
+
+
+        OverlayScrollbars(imageDesc.querySelector(':scope .gallery__img-detail'),{
+          className       : "os-theme-dark limited-handles os-host-flexbox",
+          sizeAutoCapable : false,
+          paddingAbsolute : true,
+        });
+
 
         modalOverlay.style.height = bodyHeight + 'px';
         modalOverlay.classList.add('active');
@@ -197,7 +205,7 @@ const BLANCHART = {};
         const absoluteElementTop = elementRect.top + window.pageYOffset;
         const middle = Math.round(absoluteElementTop - (window.innerHeight / 2)  + elementRect.height / 2);
         BLANCHART.modalY = middle;
-        scroll.animateScroll(middle);
+        scroll.animateScroll(BLANCHART.modalY);
 
         document.addEventListener('scrollStop', event => {
           if (modalWindow.classList.contains('active')){
@@ -573,13 +581,13 @@ const BLANCHART = {};
       document.querySelectorAll('.publications__cat-item .publications__cat:not(:checked)').forEach(elem => {
         elem.closest('.publications__cat-item').style.display = 'none';
       })
-      animateCSS(document.querySelector('.publications__cat-group'),'fadeInUp');
+      // animateCSS(document.querySelector('.publications__cat-group'),'fadeIn');
     }
     else {
       document.querySelectorAll('.publications__cat-item').forEach(elem => {
         elem.style.display = 'block';
       })
-      animateCSS(document.querySelector('.publications__cat-group'),'fadeInDown');
+      animateCSS(document.querySelector('.publications__cat-group'),'fadeIn');
     }
     groupButton.disabled = !isBreakPointMobile;
   }
