@@ -3540,7 +3540,7 @@ body {
   }
 
   .gallery__img-detail {
-    height: calc(var(--vh, 1vh) * 42);
+    height: 42vh;
     /* padding-top: 7px; */
   }
 
@@ -4128,7 +4128,7 @@ body {
   .gallery__modal-window{
     top: 296px;
     height: 100vh;
-    height: calc(var(--vh, 1vh) * 100);
+    /* height: calc(var(--vh, 1vh) * 100); */
     left: 5vw;
     right: 5vw;
   }
@@ -4143,7 +4143,7 @@ body {
   }
 
   .gallery__img-detail {
-    height: calc(var(--vh, 1vh) * 42);
+    height: 42vh;
     padding-top: 7px;
   }
 
