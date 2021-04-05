@@ -3517,7 +3517,7 @@ body {
   .gallery__modal-window {
     top: 35%;
     height: 100vh;
-    height: calc(var(--vh, 1vh) * 100);
+    /* height: calc(var(--vh, 1vh) * 100); */
     right: 6.5%;
     left: 6.5%;
   }
@@ -3533,7 +3533,7 @@ body {
 
   .gallery__img-desc {
     padding-top: 24vh;
-    padding-top: calc(var(--vh, 1vh) * 24);
+    /* padding-top: calc(var(--vh, 1vh) * 24); */
     padding-left: 13.5%;
     padding-right: 13.5%;
     /* padding: 129px 13.5% 0; */
